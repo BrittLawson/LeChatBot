@@ -22,7 +22,9 @@ export default new Vuex.Store({
     user: currentUser || {},
     nameOfCurrentUser: '',
     currentQueryString: '',
-    currentResponseObject: {}
+    currentResponseObject: {
+      message: "Ask me a question, or ask for help if you want to know what I can tell you about."
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

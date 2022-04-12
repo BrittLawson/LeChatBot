@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="queryString" placeholder="Type your question here">
+    <input type="text" v-model="queryString" v-on:keyup.enter="sendQuery" placeholder="Type your question here">
     <button type="submit" @click.prevent="sendQuery">Submit</button>
   </div>
 </template>

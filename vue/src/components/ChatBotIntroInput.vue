@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="userName" placeholder="Type your name here">
+    <input type="text" v-model="userName" v-on:keyup.enter="saveName" placeholder="Type your name here">
     <button type="submit" @click.prevent="saveName">Submit</button>
   </div>
 </template>
