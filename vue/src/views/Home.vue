@@ -2,18 +2,18 @@
   <div class="home">
     <h1>Home</h1>
     <p>You must be authenticated to see this</p>
-    <chat-bot></chat-bot>
+    <chat-bot-container />
   </div>
 </template>
 
 <script>
 
-import ChatBot from '@/components/ChatBot.vue';
+import ChatBotContainer from '@/components/ChatBotContainer.vue';
 
 export default {
   name: "home",
   components: {
-    ChatBot
+    ChatBotContainer
   }
 };
 </script>
