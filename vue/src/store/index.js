@@ -50,7 +50,7 @@ export default new Vuex.Store({
       state.currentQueryString = queryString;
     },
     SET_RESPONSE_OBJECT(state, response) {
-      state.currentResponseObject = response;
+      state.currentResponseObject = response.data;
     }
   }
 })
