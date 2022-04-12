@@ -10,7 +10,7 @@
           <sidebar />
       </div>
       <div class="content">
-
+          <chat-bot-container />
       </div>
       
       
@@ -19,11 +19,13 @@
 
 <script>
 import Sidebar from '@/components/Sidebar';
+import ChatBotContainer from '@/components/ChatBotContainer.vue';
 
 export default {
     name: "main-container",
     components: {
-        Sidebar
+        Sidebar,
+        ChatBotContainer
     }
 }
 </script>
@@ -61,11 +63,17 @@ img {
     align-items: center;
 }
 
+.content {
+    grid-area: content;
+    padding-top: 25px;
+    padding-left: 5%;
+}
+
 h1 {
     color: #F5F7F3;
     font-family: 'Playfair Display', serif;
     font-size: 4em;
-    padding-left: 15px;
+    padding-left: 5%;
 }
 
 </style>

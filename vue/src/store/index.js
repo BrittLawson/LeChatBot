@@ -19,7 +19,12 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    nameOfCurrentUser: '',
+    currentQueryString: '',
+    currentResponseObject: {
+      message: "Ask me a question, or ask for help if you want to know what I can tell you about."
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +42,15 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_USER_NAME(state, name) {
+      state.nameOfCurrentUser = name;
+    },
+    SET_QUERY_STRING(state, queryString) {
+      state.currentQueryString = queryString;
+    },
+    SET_RESPONSE_OBJECT(state, response) {
+      state.currentResponseObject = response.data;
     }
   }
 })
