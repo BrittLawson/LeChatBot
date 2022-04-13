@@ -97,7 +97,7 @@ public class ResponseBuilder {
             Collections.shuffle(prefixes);
             String pre = prefixes.get(0);
 
-            String popularCategory = (String) h.getTopicFrequency().values().toArray()[0];;
+            String popularCategory = h.getCategoriesList().get(0);
 
             ro.setMessage(pre + popularCategory);
 
