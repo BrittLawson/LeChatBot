@@ -5,6 +5,12 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import Pathway from '@/views/Pathway.vue'
+import EmployerFollowUp from '@/views/EmployerFollowUp.vue'
+import InterviewFashion from '@/views/InterviewFashion.vue'
+import InterviewPrep from '@/views/InterviewPrep.vue'
+import StarQuestions from '@/views/StarQuestions.vue'
+
 
 Vue.use(Router)
 
@@ -25,6 +31,46 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/Pathway',
+      name: 'Pathway',
+      component: Pathway,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/Pathway/EmployerFollowUp',
+      name: 'EmployerFollowUp',
+      component: EmployerFollowUp,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/Pathway/InterviewFashion',
+      name: 'InterviewFashion',
+      component: InterviewFashion,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/Pathway/InterviewPrep',
+      name: 'InterviewPrep',
+      component: InterviewPrep,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/Pathway/StarQuestions',
+      name: 'StarQuestions',
+      component: StarQuestions,
       meta: {
         requiresAuth: true
       }
