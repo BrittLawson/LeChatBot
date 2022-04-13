@@ -4,6 +4,12 @@ import com.techelevator.model.HitListData;
 import com.techelevator.model.ResponseObject;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+
 @Service
 public class ResponseBuilder {
 
@@ -12,6 +18,17 @@ public class ResponseBuilder {
     private QuoteService quoteService;
     private JokeService jokeService;
     private WordleService wordleService;
+
+    private List<String> prefixes = new ArrayList<String>(
+            List.of("Sure, I can help you with: ",
+                    "Yes, let me show you what I know about: ",
+                    "Ok, you want to know about: ",
+                    "I'd love to help you with: ",
+                    "That's a meow-mazing question! Here's what I know on the topic of: ",
+                    "Purrrfect question! Here's some information about: ")
+    );
+
+
 
     // == constructor ==
     public ResponseBuilder(QuoteService quoteService, JokeService jokeService, WordleService wordleService) {
@@ -76,10 +93,16 @@ public class ResponseBuilder {
 
     private ResponseObject generateResponse(HitListData h){
 
+        ResponseObject ro = new ResponseObject();
+            Collections.shuffle(prefixes);
+            String pre = prefixes.get(0);
 
-        
+            String popularCategory = (String) h.getTopicFrequency().values().toArray()[0];;
 
-        return new ResponseObject();
+            ro.setMessage(pre + popularCategory);
+
+
+        return ro;
     }
 
 
