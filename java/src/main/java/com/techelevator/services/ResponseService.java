@@ -20,6 +20,7 @@ public class ResponseService {
     private ResponseBuilder responseBuilder;
     private QueryParser queryParser;
 
+
     // == constructor ==
 
     public ResponseService(HitDao hitDao, HitListDataBuilder hitListDataBuilder, ResponseBuilder responseBuilder, QueryParser queryParser) {
@@ -52,6 +53,10 @@ public class ResponseService {
         return responseBuilder.getMotivationalQuote();
     }
 
+    public ResponseObject getDefaultResponse(){
+        return responseBuilder.buildDefaultResponse();
+    }
+
     private HitListData getHitListDataForQuery(String query){
         List<Hit> hitList = getHitListForQuery(query);
         return hitListDataBuilder.getHitListDataFromListOfHits(hitList);
@@ -60,6 +65,10 @@ public class ResponseService {
     private List<Hit> getHitListForQuery(String query){
         List<String> keywords = queryParser.getPotentialKeywordsFromQuery(query);
         return hitDao.getHits(keywords);
+    }
+
+    public ResponseObject getTodaysWordleSolution(){
+        return responseBuilder.getTodaysWordleSolution();
     }
 
 

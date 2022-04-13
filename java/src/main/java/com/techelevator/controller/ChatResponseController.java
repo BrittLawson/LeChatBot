@@ -39,4 +39,10 @@ public class ChatResponseController {
         return responseService.getJoke();
     }
 
+    @RequestMapping(path = "/response/wordle", method = RequestMethod.GET)
+    public ResponseObject getTodaysWordleSolution(){
+        return responseService.getTodaysWordleSolution();
+    }
+
+
 }
