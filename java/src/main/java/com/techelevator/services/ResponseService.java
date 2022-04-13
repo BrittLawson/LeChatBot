@@ -1,72 +1,65 @@
 package com.techelevator.services;
 
+import com.techelevator.dao.HitDao;
+import com.techelevator.model.Hit;
+import com.techelevator.model.HitListData;
 import com.techelevator.model.ResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.security.Principal;
+import java.util.List;
 
 @Component
 public class ResponseService {
 
     // == fields ==
     private static final String DEFAULT_RESPONSE_MESSAGE = "Sorry, I didn't find anything relevant. Here's a motivational quote:";
-    QuoteService quoteService = new QuoteService();
-    JokeService jokeService = new JokeService();
+    private HitDao hitDao;
+    private HitListDataBuilder hitListDataBuilder;
+    private ResponseBuilder responseBuilder;
+    private QueryParser queryParser;
 
     // == constructor ==
 
-    @Autowired
-    public ResponseService(QuoteService quoteService, JokeService jokeService) {
-        this.quoteService = quoteService;
-        this.jokeService = jokeService;
+    public ResponseService(HitDao hitDao, HitListDataBuilder hitListDataBuilder, ResponseBuilder responseBuilder, QueryParser queryParser) {
+        this.hitDao = hitDao;
+        this.hitListDataBuilder = hitListDataBuilder;
+        this.responseBuilder = responseBuilder;
+        this.queryParser = queryParser;
     }
+
 
     // == methods ==
 
     public ResponseObject getResponseForQuery(String query, Principal principal){
-        ResponseObject response = new ResponseObject();
 
-        // code to populate response object
-
-        if(response.getMessage() == null){
-            return getDefaultResponse();
-        }
-
+        HitListData hitListData = getHitListDataForQuery(query);
+        ResponseObject response = responseBuilder.getResponseObjectFromHitListData(hitListData);
         return response;
+
     }
 
     public ResponseObject getResponseForQueryInTopic(String query, String topic, Principal principal){
-        ResponseObject response = new ResponseObject();
-
-        // code to populate response object
-
-        if(response.getLinks().isEmpty()){
-            return getDefaultResponse();
-        }
-
-        return response;
+        return null;
     }
 
     public ResponseObject getJoke(){
-        ResponseObject response = new ResponseObject();
-        String joke = jokeService.getJoke();
-
-        response.setMessage("Here's a joke:\n" + joke);
-
-        return response;
+        return responseBuilder.getJoke();
     }
 
-    ResponseObject getMotivationalQuote(){
-        ResponseObject response = new ResponseObject();
-        String quote = quoteService.getMotivationalQuote();
-        response.setMessage(quote);
-        return response;
+    public ResponseObject getMotivationalQuote(){
+        return responseBuilder.getMotivationalQuote();
     }
 
-    // for now, the default response is just a motivational quote.
-    public ResponseObject getDefaultResponse(){
-        return getMotivationalQuote();
+    private HitListData getHitListDataForQuery(String query){
+        List<Hit> hitList = getHitListForQuery(query);
+        return hitListDataBuilder.getHitListDataFromListOfHits(hitList);
+    }
+
+    private List<Hit> getHitListForQuery(String query){
+        List<String> keywords = queryParser.getPotentialKeywordsFromQuery(query);
+        return hitDao.getHits(keywords);
     }
 
 

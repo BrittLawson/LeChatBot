@@ -2,11 +2,12 @@ package com.techelevator.services;
 
 import com.techelevator.model.Joke;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+@Service
 public class JokeService {
 
     // == fields ==
