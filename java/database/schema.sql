@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, category, modules, lesson, link, topic, keyword, topic_to_keyword, calendar, open_positions;
+DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -8,7 +8,6 @@ CREATE SEQUENCE seq_user_id
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;
-
 
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
@@ -23,250 +22,88 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 --EKS inserted code below:
 
+DROP TABLE IF EXISTS category, modules, lesson, link, topic, keyword, topic_to_keyword, calendar, open_positions;
+DROP SEQUENCE IF EXISTS seq_category_id, seq_module_id, seq_lesson_id, seq_external_link_id, seq_keyword_id, seq_topic_id, seq_topic_to_keyword_id;
+
+CREATE SEQUENCE seq_category_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_module_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_lesson_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_external_link_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_keyword_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_topic_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_topic_to_keyword_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
 CREATE TABLE category (
-	category_id int NOT NULL,
+	category_id int DEFAULT nextval('seq_category_id'::regclass) NOT NULL,
 	category varchar(50) NOT NULL UNIQUE,
 
 	CONSTRAINT PK_category PRIMARY KEY (category_id)
 );
 
-INSERT INTO category (category_id, category)
-                VALUES ('1', 'calendar'),
-                       ('2', 'jobs'),
-                       ('3', 'pathway'),
-                       ('4', 'curriculum');
-
 CREATE TABLE modules (
-	module_id int NOT NULL,
+	module_id int DEFAULT nextval('seq_module_id'::regclass) NOT NULL,
 	module_name varchar(50) NOT NULL UNIQUE,
 
 	CONSTRAINT PK_module PRIMARY KEY (module_id)
 );
 
-INSERT INTO modules (module_id, module_name)
-                VALUES ('1', 'Module 1'),
-                       ('2', 'Module 2'),
-                       ('3', 'Module 3');
-
 CREATE TABLE lesson (
-	lesson_id int NOT NULL,
+	lesson_id int DEFAULT nextval('seq_lesson_id'::regclass) NOT NULL,
 	lesson_name varchar(50) NOT NULL UNIQUE,
 
 	CONSTRAINT PK_lesson PRIMARY KEY (lesson_id)
 );
 
-INSERT INTO lesson (lesson_id, lesson_name)
-                VALUES ('1', 'Lesson 1'),
-                       ('2', 'Lesson 2'),
-                       ('3', 'Lesson 3'),
-                       ('4', 'Lesson 4'),
-                       ('5', 'Lesson 5'),
-                       ('6', 'Lesson 6'),
-                       ('7', 'Lesson 7'),
-                       ('8', 'Lesson 8'),
-                       ('9', 'Lesson 9'),
-                       ('10', 'Lesson 10'),
-                       ('11', 'Lesson 11'),
-                       ('12', 'Lesson 12'),
-                       ('13', 'Lesson 13'),
-                       ('14', 'Lesson 14'),
-                       ('15', 'Lesson 15'),
-                       ('16', 'Lesson 16'),
-                       ('17', 'Lesson 17'),
-                       ('18', 'Lesson 18');
-
 
 CREATE TABLE external_link (
-    external_link_id int NOT NULL,
+    external_link_id int DEFAULT nextval('seq_external_link_id'::regclass) NOT NULL,
     external_link_url varchar(500) NOT NULL UNIQUE,
 	CONSTRAINT PK_link PRIMARY KEY (external_link_id)
 );
 
-INSERT INTO external_link (external_link_id, external_link_url) VALUES ('1', 'google.com');
-
 CREATE TABLE keyword (
-	keyword_id int NOT NULL,
+	keyword_id int DEFAULT nextval('seq_keyword_id'::regclass) NOT NULL,
 	keyword varchar(50) NOT NULL UNIQUE,
 
 	CONSTRAINT PK_keyword PRIMARY KEY (keyword_id)
 );
 
-INSERT INTO keyword (keyword_id, keyword)
-                VALUES ('1', 'api'),
-                       ('2', 'apis'),
-                       ('3', 'apply'),
-                       ('4', 'array'),
-                       ('5', 'asynchronous'),
-                       ('6', 'authentication'),
-                       ('7', 'automated'),
-                       ('8', 'behavioral interview'),
-                       ('9', 'boolean'),
-                       ('10', 'branch'),
-                       ('11', 'calendar'),
-                       ('12', 'catch'),
-                       ('13', 'char'),
-                       ('14', 'child'),
-                       ('15', 'cli'),
-                       ('16', 'collection'),
-                       ('17', 'communication'),
-                       ('18', 'component'),
-                       ('19', 'component communication'),
-                       ('20', 'consume'),
-                       ('21', 'consume api'),
-                       ('22', 'controller'),
-                       ('23', 'cover'),
-                       ('24', 'cover letter'),
-                       ('25', 'create'),
-                       ('26', 'creating'),
-                       ('27', 'crud'),
-                       ('28', 'css'),
-                       ('29', 'curriculum vitae'),
-                       ('30', 'cv'),
-                       ('31', 'dao'),
-                       ('32', 'data'),
-                       ('33', 'database'),
-                       ('34', 'date'),
-                       ('35', 'delete'),
-                       ('36', 'deleting'),
-                       ('37', 'dependency injection'),
-                       ('38', 'design'),
-                       ('39', 'do while'),
-                       ('40', 'document object model'),
-                       ('41', 'dom'),
-                       ('42', 'double float'),
-                       ('43', 'dress'),
-                       ('44', 'dressed-up'),
-                       ('45', 'employer'),
-                       ('46', 'employment'),
-                       ('47', 'encapsulation'),
-                       ('48', 'error'),
-                       ('49', 'error handling'),
-                       ('50', 'event'),
-                       ('51', 'event handling'),
-                       ('52', 'events'),
-                       ('53', 'exception'),
-                       ('54', 'exception handling'),
-                       ('55', 'experience'),
-                       ('56', 'file input'),
-                       ('57', 'file output'),
-                       ('58', 'find job'),
-                       ('59', 'flexbox'),
-                       ('60', 'followup'),
-                       ('61', 'for loop'),
-                       ('62', 'grid'),
-                       ('63', 'group'),
-                       ('64', 'grouping'),
-                       ('65', 'html'),
-                       ('66', 'http api'),
-                       ('67', 'i/o'),
-                       ('68', 'if'),
-                       ('69', 'if else'),
-                       ('70', 'inheritance'),
-                       ('71', 'input/output'),
-                       ('72', 'insert'),
-                       ('73', 'inserting'),
-                       ('74', 'int'),
-                       ('75', 'integer'),
-                       ('76', 'intellij'),
-                       ('77', 'interview'),
-                       ('78', 'java'),
-                       ('79', 'javascript'),
-                       ('80', 'job'),
-                       ('81', 'job posting'),
-                       ('82', 'job requisition'),
-                       ('83', 'join'),
-                       ('84', 'joins'),
-                       ('85', 'js'),
-                       ('86', 'limit'),
-                       ('87', 'limiting'),
-                       ('88', 'linked in'),
-                       ('89', 'linked-in'),
-                       ('90', 'list'),
-                       ('91', 'long'),
-                       ('92', 'loop'),
-                       ('93', 'map'),
-                       ('94', 'merge'),
-                       ('95', 'merge conflict'),
-                       ('96', 'microservice'),
-                       ('97', 'model'),
-                       ('98', 'mvc'),
-                       ('99', 'npm'),
-                       ('100', 'object'),
-                       ('101', 'open jobs'),
-                       ('102', 'order'),
-                       ('103', 'ordering'),
-                       ('104', 'parent'),
-                       ('105', 'pathway'),
-                       ('106', 'polymorphism'),
-                       ('107', 'postgres'),
-                       ('108', 'postings'),
-                       ('109', 'post-interview'),
-                       ('110', 'postman'),
-                       ('111', 'preparation'),
-                       ('112', 'prepare'),
-                       ('113', 'profile'),
-                       ('114', 'queue'),
-                       ('115', 'relation'),
-                       ('116', 'relational'),
-                       ('117', 'relational data'),
-                       ('118', 'relationship'),
-                       ('119', 'repo'),
-                       ('120', 'requisition'),
-                       ('121', 'rest'),
-                       ('122', 'restful api'),
-                       ('123', 'restful rest api'),
-                       ('124', 'resume'),
-                       ('125', 'route'),
-                       ('126', 'router'),
-                       ('127', 'salary'),
-                       ('128', 'sample'),
-                       ('129', 'sample interview questions'),
-                       ('130', 'sample questions'),
-                       ('131', 'schedule'),
-                       ('132', 'security'),
-                       ('133', 'server'),
-                       ('134', 'service'),
-                       ('135', 'set'),
-                       ('136', 'social media'),
-                       ('137', 'spring'),
-                       ('138', 'spring boot'),
-                       ('139', 'sql'),
-                       ('140', 'sql join'),
-                       ('141', 'stack'),
-                       ('142', 'star'),
-                       ('143', 'starting salary'),
-                       ('144', 'suit'),
-                       ('145', 'technical interview'),
-                       ('146', 'terminal'),
-                       ('147', 'test'),
-                       ('148', 'testing'),
-                       ('149', 'tie'),
-                       ('150', 'time'),
-                       ('151', 'trunk'),
-                       ('152', 'try'),
-                       ('153', 'unit'),
-                       ('154', 'upcoming'),
-                       ('155', 'update'),
-                       ('156', 'updating'),
-                       ('157', 'variable'),
-                       ('158', 'variable types'),
-                       ('159', 'version control'),
-                       ('160', 'view'),
-                       ('161', 'vue'),
-                       ('162', 'vue component'),
-                       ('163', 'vue js'),
-                       ('164', 'vue router'),
-                       ('165', 'vuejs'),
-                       ('166', 'wear'),
-                       ('167', 'web api'),
-                       ('168', 'web service'),
-                       ('169', 'while'),
-                       ('170', 'write');
-
-
-
 CREATE TABLE topic (
-    topic_id int NOT NULL UNIQUE,
+    topic_id int DEFAULT nextval('seq_topic_id'::regclass) NOT NULL,
     topic varchar(500) NOT NULL,
     category_id int NOT NULL,
     module_id int,
@@ -279,65 +116,8 @@ CREATE TABLE topic (
     CONSTRAINT FK_topic_external_link FOREIGN KEY (external_link_id) REFERENCES external_link (external_link_id)
 );
 
-INSERT INTO topic (topic_id, topic, category_id, module_id, lesson_id, external_link_id)
-            VALUES ('1', 'event', '1', NULL, NULL, NULL),
-                   ('2', 'job postings',  '3', NULL, NULL, NULL),
-                   ('3', 'cover letter', '3',  NULL, NULL, NULL),
-                   ('4', 'resume', '3', NULL, NULL, NULL),
-                   ('5', 'linkedin', '3', NULL, NULL, NULL),
-                   ('6', 'available jobs', '3', NULL, NULL, NULL),
-                   ('7', 'interview preparation', '3', NULL, NULL, NULL),
-                   ('8', 'interview follow-up', '3', NULL, NULL, NULL),
-                   ('9', 'sample interview question', '3',  NULL, NULL, NULL),
-                   ('10', 'terminal', '4', '1', '1', '1'),
-                   ('11', 'java', '4', '1', '3', '1'),
-                   ('12', 'intellij', '4', '1', '1', '1'),
-                   ('13', 'postgresql', '4', '2', '12', '1'),
-                   ('14', 'postman', '4', '2', '12', '1'),
-                   ('15', 'npm', '4', NULL, NULL, '1'),
-                   ('16', 'git', '4', '1', '1', '1'),
-                   ('17', 'java primitive variables', '4', '1', '2', '1'),
-                   ('19', 'java logical branching', '4', '1', '3', '1'),
-                   ('18', 'java loops and arrays ', '4', '1', '4', '1'),
-                   ('20', 'java command-line programs', '4', '1', '5', '1'),
-                   ('21', 'java objects', '4', '1', '6', '1'),
-                   ('22', 'collections - lists, stacks, queues', '4', '1', '7', '1'),
-                   ('23', 'collections - maps, sets', '4', '1', '8', '1'),
-                   ('24', 'classes and encapsulation', '4', '1', '9', '1'),
-                   ('25', 'inheritance', '4', '1', '11', '1'),
-                   ('26', 'polymorphism', '4', '1', '12', '1'),
-                   ('27', 'unit testing', '4', '1', '14', '1'),
-                   ('28', 'java error handling', '4', '1', '16', '1'),
-                   ('29', 'java file input/output', '4', '1', '17', '1'),
-                   ('30', 'sql', '4', '2', '1', '1'),
-                   ('31', 'sql ordering, limiting, grouping', '4', '2', '2', '1'),
-                   ('32', 'sql joins', '4', '2', '3', '1'),
-                   ('33', 'sql inserting, updating, deleting ', '4', '2', '4', '1'),
-                   ('34', 'sql relational data', '4', '2', '5', '1'),
-                   ('35', 'data access object', '4', '2', '6', '1'),
-                   ('36', 'dao testing', '4', '2', '7', '1'),
-                   ('37', 'data security', '4', '2', '8', '1'),
-                   ('38', 'consuming restful apis', '4', '2', '11', '1'),
-                   ('39', 'server-side apis', '4', '2', '13', '1'),
-                   ('40', 'model view controller', '4', '2', '13', '1'),
-                   ('41', 'securing apis', '4', '2', '16', '1'),
-                   ('42', 'html', '4', '3', '1', '1'),
-                   ('43', 'css', '4', '3', '2', '1'),
-                   ('44', 'grid', '4', '3', '3', '1'),
-                   ('45', 'flexbox', '4', '3', '4', '1'),
-                   ('46', 'automated testing', '4', '3', '5', '1'),
-                   ('47', 'javascript', '4', '3', '6', '1'),
-                   ('48', 'javascript functions', '4', '3', '7', '1'),
-                   ('49', 'dom', '4', '3', '8', '1'),
-                   ('50', 'javascript event handling', '4', '3', '9', '1'),
-                   ('51', 'vue js', '4', '3', '11', '1'),
-                   ('52', 'vue js event handling', '4', '3', '13', '1'),
-                   ('53', 'vue js components', '4', '3', '14', '1'),
-                   ('54', 'vue js router', '4', '3', '17', '1'),
-                   ('55', 'web services', '4', '3', '18', '1');
-
 CREATE TABLE topic_to_keyword (
-	id int Not Null UNIQUE,
+	id int DEFAULT nextval('seq_topic_to_keyword_id'::regclass) NOT NULL,
 	topic_id int NOT NULL,
 	keyword_id int NOT NULL,
 
@@ -346,217 +126,6 @@ CREATE TABLE topic_to_keyword (
 	CONSTRAINT FK_to_keyword FOREIGN KEY (keyword_id) REFERENCES keyword (keyword_id)
 );
 
-INSERT INTO topic_to_keyword (id, topic_id, keyword_id)
-                VALUES ('1', '7', '77'),
-                       ('2', '33', '139'),
-                       ('3', '17', '157'),
-                       ('4', '38', '1'),
-                       ('5', '34', '139'),
-                       ('6', '6', '77'),
-                       ('7', '3', '23'),
-                       ('8', '1', '11'),
-                       ('9', '52', '161'),
-                       ('10', '9', '128'),
-                       ('11', '28', '48'),
-                       ('12', '4', '124'),
-                       ('13', '31', '103'),
-                       ('14', '18', '4'),
-                       ('15', '54', '161'),
-                       ('16', '16', '159'),
-                       ('17', '53', '161'),
-                       ('18', '55', '168'),
-                       ('19', '22', '90'),
-                       ('20', '40', '98'),
-                       ('21', '50', '79'),
-                       ('22', '29', '56'),
-                       ('23', '2', '80'),
-                       ('24', '5', '136'),
-                       ('25', '25', '70'),
-                       ('26', '23', '93'),
-                       ('27', '13', '107'),
-                       ('28', '19', '68'),
-                       ('29', '32', '140'),
-                       ('30', '8', '77'),
-                       ('31', '39', '133'),
-                       ('32', '27', '147'),
-                       ('33', '51', '161'),
-                       ('34', '46', '147'),
-                       ('35', '41', '6'),
-                       ('36', '49', '41'),
-                       ('37', '20', '15'),
-                       ('38', '21', '100'),
-                       ('39', '37', '32'),
-                       ('40', '10', '146'),
-                       ('41', '11', '78'),
-                       ('42', '12', '76'),
-                       ('43', '14', '110'),
-                       ('44', '15', '99'),
-                       ('45', '24', '47'),
-                       ('46', '26', '106'),
-                       ('47', '30', '139'),
-                       ('48', '35', '31'),
-                       ('49', '36', '31'),
-                       ('50', '42', '65'),
-                       ('51', '43', '28'),
-                       ('52', '44', '62'),
-                       ('53', '45', '59'),
-                       ('54', '47', '79'),
-                       ('55', '48', '79'),
-                       ('56', '38', '2'),
-                       ('57', '46', '7'),
-                       ('58', '3', '24'),
-                       ('59', '33', '25'),
-                       ('60', '13', '32'),
-                       ('61', '34', '32'),
-                       ('62', '41', '37'),
-                       ('63', '49', '40'),
-                       ('64', '28', '49'),
-                       ('65', '1', '50'),
-                       ('66', '29', '57'),
-                       ('67', '2', '58'),
-                       ('68', '8', '60'),
-                       ('69', '19', '69'),
-                       ('70', '9', '77'),
-                       ('71', '20', '78'),
-                       ('72', '21', '78'),
-                       ('73', '6', '80'),
-                       ('74', '32', '83'),
-                       ('75', '50', '85'),
-                       ('76', '31', '87'),
-                       ('77', '5', '89'),
-                       ('78', '18', '92'),
-                       ('79', '40', '97'),
-                       ('80', '25', '104'),
-                       ('81', '7', '111'),
-                       ('82', '16', '119'),
-                       ('83', '37', '132'),
-                       ('84', '55', '134'),
-                       ('85', '23', '135'),
-                       ('86', '39', '137'),
-                       ('87', '22', '141'),
-                       ('88', '27', '153'),
-                       ('89', '17', '158'),
-                       ('90', '53', '162'),
-                       ('91', '51', '165'),
-                       ('92', '52', '165'),
-                       ('93', '54', '165'),
-                       ('94', '4', '170'),
-                       ('95', '25', '14'),
-                       ('96', '23', '16'),
-                       ('97', '53', '18'),
-                       ('98', '13', '33'),
-                       ('99', '50', '51'),
-                       ('100', '28', '53'),
-                       ('101', '31', '64'),
-                       ('102', '29', '67'),
-                       ('103', '33', '72'),
-                       ('104', '17', '74'),
-                       ('105', '4', '77'),
-                       ('106', '19', '78'),
-                       ('107', '6', '81'),
-                       ('108', '32', '84'),
-                       ('109', '5', '88'),
-                       ('110', '16', '94'),
-                       ('111', '55', '96'),
-                       ('112', '2', '101'),
-                       ('113', '8', '109'),
-                       ('114', '7', '112'),
-                       ('115', '22', '114'),
-                       ('116', '34', '115'),
-                       ('117', '9', '130'),
-                       ('118', '1', '131'),
-                       ('119', '39', '138'),
-                       ('120', '27', '148'),
-                       ('121', '40', '160'),
-                       ('122', '51', '163'),
-                       ('123', '52', '163'),
-                       ('124', '54', '163'),
-                       ('125', '38', '167'),
-                       ('126', '18', '169'),
-                       ('127', '3', '170'),
-                       ('128', '4', '3'),
-                       ('129', '55', '5'),
-                       ('130', '22', '16'),
-                       ('131', '53', '17'),
-                       ('132', '40', '22'),
-                       ('133', '3', '30'),
-                       ('134', '50', '50'),
-                       ('135', '52', '51'),
-                       ('136', '28', '54'),
-                       ('137', '18', '61'),
-                       ('138', '38', '66'),
-                       ('139', '29', '71'),
-                       ('140', '17', '75'),
-                       ('141', '2', '77'),
-                       ('142', '16', '95'),
-                       ('143', '31', '102'),
-                       ('144', '6', '108'),
-                       ('145', '5', '113'),
-                       ('146', '34', '116'),
-                       ('147', '9', '129'),
-                       ('148', '7', '145'),
-                       ('149', '1', '154'),
-                       ('150', '33', '155'),
-                       ('151', '54', '164'),
-                       ('152', '16', '10'),
-                       ('153', '53', '19'),
-                       ('154', '38', '21'),
-                       ('155', '3', '29'),
-                       ('156', '1', '34'),
-                       ('157', '33', '35'),
-                       ('158', '18', '39'),
-                       ('159', '52', '52'),
-                       ('160', '4', '80'),
-                       ('161', '31', '86'),
-                       ('162', '17', '91'),
-                       ('163', '34', '118'),
-                       ('164', '6', '120'),
-                       ('165', '54', '125'),
-                       ('166', '9', '142'),
-                       ('167', '7', '142'),
-                       ('168', '28', '152'),
-                       ('169', '3', '3'),
-                       ('170', '9', '8'),
-                       ('171', '28', '12'),
-                       ('172', '38', '20'),
-                       ('173', '33', '26'),
-                       ('174', '17', '42'),
-                       ('175', '4', '55'),
-                       ('176', '31', '63'),
-                       ('177', '18', '78'),
-                       ('178', '6', '82'),
-                       ('179', '34', '117'),
-                       ('180', '54', '126'),
-                       ('181', '7', '143'),
-                       ('182', '1', '150'),
-                       ('183', '16', '151'),
-                       ('184', '17', '9'),
-                       ('185', '34', '33'),
-                       ('186', '33', '36'),
-                       ('187', '6', '46'),
-                       ('188', '3', '80'),
-                       ('189', '1', '105'),
-                       ('190', '38', '121'),
-                       ('191', '7', '127'),
-                       ('192', '17', '13'),
-                       ('193', '34', '38'),
-                       ('194', '6', '45'),
-                       ('195', '3', '77'),
-                       ('196', '38', '123'),
-                       ('197', '33', '156'),
-                       ('198', '7', '166'),
-                       ('199', '7', '43'),
-                       ('200', '33', '73'),
-                       ('201', '17', '78'),
-                       ('202', '38', '122'),
-                       ('203', '33', '27'),
-                       ('204', '7', '149'),
-                       ('205', '7', '144'),
-                       ('206', '7', '44');
-
-
-
-
 CREATE TABLE calendar (
 	event_id int NOT NULL,
 	event_description varchar(500) NOT NULL UNIQUE,
@@ -564,21 +133,5 @@ CREATE TABLE calendar (
 	event_time time,
 	CONSTRAINT PK_calendar PRIMARY KEY (event_id)
 );
-
-INSERT INTO calendar (event_id, event_description, event_date, event_time)
-            VALUES   ('1', 'Orientation', '2022-05-03', '9:00 AM'),
-                      ('2', 'Mandatory Happy Hour', '2022-05-04', '5:00 PM');
-
-CREATE TABLE open_positions (
-	position_id int NOT NULL,
-	company varchar(50) NOT NULL,
-	description varchar(500) NOT NULL,
-	CONSTRAINT PK_position PRIMARY KEY (position_id)
-);
-
-INSERT INTO open_positions (position_id, company, description)
-            VALUES   ('1', 'Omnicell', 'Software Architect'),
-                      ('2', 'Hitachi', 'QA Tester');
-
 
 COMMIT TRANSACTION;
