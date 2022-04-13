@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ResponseBuilder {
 
     // == fields ==
-    private static final String DEFAULT_RESPONSE_MESSAGE = "Sorry, I didn't find anything relevant. Here's a motivational quote:\n";
+    private static final String DEFAULT_RESPONSE_MESSAGE = "Sorry, I didn't find anything relevant. Here's a meowtivational quote:\n";
     private QuoteService quoteService;
     private JokeService jokeService;
     private WordleService wordleService;
@@ -47,7 +47,7 @@ public class ResponseBuilder {
     public ResponseObject getMotivationalQuote() {
 
         String quote = quoteService.getMotivationalQuote();
-        String message = "Here's a motivational quote:\n" + quote;
+        String message = "Here's a meowtivational quote:\n" + quote;
         return buildResponseWithMessage(message);
 
     }
@@ -56,7 +56,7 @@ public class ResponseBuilder {
 
         String joke = jokeService.getJoke();
         String message = "Here's a joke:\n" + joke;
-        return buildResponseWithMessage(joke);
+        return buildResponseWithMessage(message);
 
     }
 
@@ -75,9 +75,6 @@ public class ResponseBuilder {
         // private
 
     private ResponseObject generateResponse(HitListData h){
-
-
-        
 
         return new ResponseObject();
     }
