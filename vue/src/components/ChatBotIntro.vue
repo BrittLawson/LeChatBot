@@ -1,19 +1,23 @@
 <template>
-  <div >
-    <h3>What's your name?</h3>
-    <chat-bot-intro-input />
+  <div class = "bot-container">
+    <bot-speech-bubble :speechText="'Hi! My name is Oliver!  What\'s your name?'"/>
+    <div class = "spacer"></div>
+    <chat-bot-intro-input class="input-field"/>
   </div>
 </template>
 
 <script>
 import ChatBotIntroInput from '@/components/ChatBotIntroInput.vue';
+import BotSpeechBubble from './BotSpeechBubble.vue';
 export default {
   components: {
-    ChatBotIntroInput
+    ChatBotIntroInput,
+    BotSpeechBubble
   }
 }
 </script>
 
-<style>
+<style style="scoped">
+
 
 </style>
