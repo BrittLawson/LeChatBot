@@ -10,7 +10,9 @@
           <sidebar />
       </div>
       <div class="content">
-          <chat-bot-container />
+          <login-container v-if="isLogin"/>
+          <register-container v-if="isRegister" />
+          <chat-bot-container v-if="this.$route.name==='home'" />
       </div>
       
       
@@ -19,13 +21,25 @@
 
 <script>
 import Sidebar from '@/components/Sidebar';
-import ChatBotContainer from '@/components/ChatBotContainer.vue';
+import LoginContainer from './LoginContainer.vue';
+import ChatBotContainer from './ChatBotContainer.vue';
+import RegisterContainer from './RegisterContainer.vue';
 
 export default {
     name: "main-container",
     components: {
         Sidebar,
-        ChatBotContainer
+        LoginContainer, 
+        ChatBotContainer,
+        RegisterContainer
+    },
+    computed: {
+        isLogin() {
+            return this.$route.name === 'login';
+        },
+        isRegister() {
+            return this.$route.name === 'register';
+        }
     }
 }
 </script>
@@ -66,8 +80,8 @@ img {
 
 .content {
     grid-area: content;
-    padding-top: 25px;
-    padding-left: 5%;
+    padding-top: 10px;
+    padding-left: 10px;
     background-color: #F5F7F3;
     font-family: 'Roboto', sans-serif;
     color: #1F2B4A

@@ -23,7 +23,7 @@ export default new Vuex.Store({
     nameOfCurrentUser: '',
     currentQueryString: '',
     currentResponseObject: {
-      message: "Ask me a question, or ask for help if you want to know what I can tell you about."
+      message: ""
     }
   },
   mutations: {

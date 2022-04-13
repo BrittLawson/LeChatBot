@@ -2,10 +2,12 @@
   <div class="sidebar">
       <query-button class="button" :button-text="'I need information about something in Pathway.'" />
       <query-button class="button" :button-text="'I need information about the curriculum.'" />
-      <query-button class="button" :button-text="'What assignments are due today?'" />
+      <query-button class="button" :button-text="'What\'s on the calendar today?'" />
       <query-button class="button" :button-text="'Where can I learn more about Java?'" />
       <query-button class="button" :button-text="'Where can I learn more about Vue.js?'" />
-      <query-button class="button" :button-text="'What else can you help with?'" />     
+      <button class="button" v-on:click="logout()" :disabled="$store.state.nameOfCurrentUser==''">
+        <p>I'd like to log out, please!</p>    
+      </button>    
   </div>
 </template>
 
@@ -15,6 +17,14 @@ export default {
     name: "sidebar",
     components: {
         QueryButton
+    },
+    methods: {
+        logout () {
+            this.$store.commit("SET_USER_NAME", '')
+            this.$store.commit("LOGOUT");
+            this.$router.push("/login");
+        }
+        
     }
 
 }
@@ -45,6 +55,7 @@ export default {
 
 .button:hover {
     background-color: white;
+    color: #1F2B4A;
 }
 
 .button:disabled,
