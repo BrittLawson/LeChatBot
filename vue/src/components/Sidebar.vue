@@ -1,41 +1,21 @@
 <template>
   <div class="sidebar">
-    <button class="button">
-        <p>
-            I need information about something in Pathway.
-        </p>
-    </button>
-    <button class="button">
-        <p>
-        I need information about the curriculum.
-        </p>
-     </button>
-     <button class="button">
-         <p>
-        What assignments are due today?
-         </p>
-     </button>
-     <button class="button">
-         <p>
-        Where can I learn more about Java?
-         </p>
-     </button>
-     <button class="button">
-         <p>
-        Where can I learn more about Vue.js?
-         </p>
-     </button>
-     <button class="button">
-         <p>
-        What else can you help with?
-         </p>
-     </button>     
+      <query-button class="button" :button-text="'I need information about something in Pathway.'" />
+      <query-button class="button" :button-text="'I need information about the curriculum.'" />
+      <query-button class="button" :button-text="'What assignments are due today?'" />
+      <query-button class="button" :button-text="'Where can I learn more about Java?'" />
+      <query-button class="button" :button-text="'Where can I learn more about Vue.js?'" />
+      <query-button class="button" :button-text="'What else can you help with?'" />     
   </div>
 </template>
 
 <script>
+import QueryButton from '@/components/QueryButton';
 export default {
-    name: "sidebar"
+    name: "sidebar",
+    components: {
+        QueryButton
+    }
 
 }
 </script>
@@ -44,7 +24,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .sidebar {
-    background-color: #B13D59;
+    background-color: #658FAE;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,5 +41,14 @@ export default {
     border-radius: 4px;
     margin: 5px;
     width: 90%;
+}
+
+.button:hover {
+    background-color: white;
+}
+
+.button:disabled,
+.button[disabled] {
+    background-color: #F5F7F3;
 }
 </style>

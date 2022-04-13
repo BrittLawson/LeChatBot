@@ -1,7 +1,7 @@
 <template>
   <body class="main-container">
       <div class="icon">
-          <img src="https://files.zohopublic.com/public?x-service=LiveDesk&event-id=1546460094411_364983000000002043&x-cli-msg=%7B%22x-siq-filetype%22%3A%22fgravatar%22%2C%22x-siq-lsid%22%3A%22364983000000002043%22%2C%22x-siq-soid%22%3A%22670693202%22%2C%22x-siq-ispreview%22%3Afalse%2C%22x-siq-pfname%22%3A%22Mark%20-%20blue%20-%20white%20back.jpg%22%2C%22x-siq-downloadtype%22%3A%22default%22%7D" alt="">
+          <img src="..\img\TechElevator_PBS_RGB_ccexpress.png">
       </div>    
       <div class="header">
         <h1>le chat bot.</h1>
@@ -32,6 +32,7 @@ export default {
 
 <style style="scoped">
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .main-container {
     height: 95vh;
@@ -67,6 +68,9 @@ img {
     grid-area: content;
     padding-top: 25px;
     padding-left: 5%;
+    background-color: #F5F7F3;
+    font-family: 'Roboto', sans-serif;
+    color: #1F2B4A
 }
 
 h1 {
