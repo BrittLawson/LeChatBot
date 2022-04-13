@@ -39,6 +39,10 @@ public class ResponseObject {
         return this;
     }
 
+    public boolean isEmpty(){
+        return message == null && responseLinks.size() == 0;
+    }
+
     public void addLink(ResponseLink responseLink){
         responseLinks.add(responseLink);
     }

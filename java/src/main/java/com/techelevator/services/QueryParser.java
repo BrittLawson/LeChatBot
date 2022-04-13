@@ -1,9 +1,11 @@
 package com.techelevator.services;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+@Service
 public class QueryParser {
 
     // == fields ==
@@ -13,18 +15,17 @@ public class QueryParser {
     // == methods ==
 
     // takes in a query string, returns a list of potential keywords
-    //TODO: handle punctuation.
     public List<String> getPotentialKeywordsFromQuery(String query){
         List<String> keywordsList = new ArrayList<>();
 
         // get rid of anything that is not a space or an alpha char
-        query = query.replaceAll("[^A-Za-z0-9 ]", "");
+        query = query.replaceAll("[^A-Za-z0-9 ]", "").toLowerCase();
 
         // split query into separate words
         // "This is an example query"->["This", "is", "an" ..]
         String[] wordArray = query.split(" ");
 
-        // add one-letter words to keyword list
+        // add one-word phrases to keyword list
         for(String word: wordArray){
             keywordsList.add(word);
         }
@@ -38,7 +39,7 @@ public class QueryParser {
             String currentWord = wordArray[i];
             String nextWord = wordArray[i + 1];
 
-            String combined = currentWord.toLowerCase() + " " + nextWord.toLowerCase() ;
+            String combined = currentWord + " " + nextWord;
 
             // add that to our list
             keywordsList.add(combined);
@@ -56,7 +57,7 @@ public class QueryParser {
             String nextWord = wordArray[i + 1];
             String nextNextWord = wordArray[i + 2];
 
-            String combined = currentWord.toLowerCase() + " " + nextWord.toLowerCase() + " " + nextNextWord.toLowerCase();
+            String combined = currentWord + " " + nextWord + " " + nextNextWord;
 
             // add that to our list
             keywordsList.add(combined);

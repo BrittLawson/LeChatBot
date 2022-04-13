@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.Objects;
+
 public class Hit {
 
     private String topic;
@@ -37,5 +39,18 @@ public class Hit {
 
     public void setExternalUrl(String externalUrl) {
         this.externalUrl = externalUrl;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hit hit = (Hit) o;
+        return Objects.equals(topic, hit.topic) && Objects.equals(category, hit.category) && Objects.equals(module, hit.module) && Objects.equals(externalUrl, hit.externalUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(topic, category, module, externalUrl);
     }
 }

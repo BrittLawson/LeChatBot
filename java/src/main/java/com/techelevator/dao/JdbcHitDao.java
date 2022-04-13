@@ -23,7 +23,7 @@ public class JdbcHitDao implements HitDao {
         for(String word: keywords) {
 
             String sql =
-            "SELECT DISTINCT topic, category, module_name, lesson_name, external_link_url, keyword" +
+            "SELECT DISTINCT topic, category, module_name, lesson_name, external_link_url " +
             "FROM topic " +
             "JOIN category USING (category_id) " +
             "JOIN modules USING (module_id) " +
@@ -31,7 +31,7 @@ public class JdbcHitDao implements HitDao {
             "JOIN external_link USING (external_link_id) " +
             "JOIN topic_to_keyword USING (topic_id) " +
             "JOIN keyword USING (keyword_id) " +
-            "WHERE keyword.keyword LIKE '%?%' ; ";
+            "WHERE keyword.keyword LIKE '%' || ? || '%' ; ";
 
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, word);
