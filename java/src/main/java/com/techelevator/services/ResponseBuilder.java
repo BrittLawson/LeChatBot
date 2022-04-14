@@ -109,9 +109,14 @@ public class ResponseBuilder {
                 return getMotivationalQuote();
             }
 
+            String messageSuffix = topCategory;
+            if(hitListData.getNumUniqueTopics()==1){
+                messageSuffix = hitListData.getTopicsList().get(0);
+            }
+
             Collections.shuffle(prefixes);
             String messagePrefix = prefixes.get(0);
-            ro.setMessage(messagePrefix + topCategory);
+            ro.setMessage(messagePrefix + messageSuffix);
 
             List<ResponseLink> responseLinks = new ArrayList<>();
 

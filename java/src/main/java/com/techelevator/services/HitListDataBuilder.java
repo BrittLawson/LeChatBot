@@ -58,7 +58,7 @@ public class HitListDataBuilder {
         Collections.sort(sortedCategoriesList, (o1, o2) -> {
 
             if(!categoryFrequency.containsKey(o2)) return -1;
-            if(!categoryFrequency.containsKey(o2)) return 1;
+            if(!categoryFrequency.containsKey(o1)) return 1;
 
             return categoryFrequency.get(o2) - categoryFrequency.get(o1);
         });
