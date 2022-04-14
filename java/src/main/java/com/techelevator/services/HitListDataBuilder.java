@@ -69,10 +69,10 @@ public class HitListDataBuilder {
             sortedTopicsList.add(topic);
         }
 
-        Collections.sort(sortedCategoriesList, (o1, o2) -> {
+        Collections.sort(sortedTopicsList, (o1, o2) -> {
 
             if(!topicFrequency.containsKey(o2)) return -1;
-            if(!topicFrequency.containsKey(o2)) return 1;
+            if(!topicFrequency.containsKey(o1)) return 1;
 
             return topicFrequency.get(o2) - topicFrequency.get(o1);
         });

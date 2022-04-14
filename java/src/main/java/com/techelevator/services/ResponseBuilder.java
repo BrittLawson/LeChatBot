@@ -86,7 +86,7 @@ public class ResponseBuilder {
 
     public ResponseObject getTodaysWordleSolution(){
         String wordleSolution = wordleService.getTodaysWordleSolution();
-        String message = "Did you do today's wordle yet? I think the word was " + wordleSolution;
+        String message = "Did you do today's Wordle yet? I think the word starts with " + wordleSolution.charAt(0);
         return buildResponseWithMessage(message);
     }
 
