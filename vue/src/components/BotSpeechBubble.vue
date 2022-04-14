@@ -1,7 +1,7 @@
 <template>
   <div class="message-container">
       <span class="profile-pic">
-        <img src="../img/oliver-talking-2.gif" alt="">
+        <img :src="getImg(image.src)" :alt="image.alt" @dblclick="switchCat">
       </span>
       <span class="speech-bubble">
             {{ speechText }}
@@ -12,7 +12,47 @@
 <script>
 export default {
     name: "bot-speech-bubble",
-    props: ["speechText"]
+    props: ["speechText"],
+    data() {
+        return {
+            index: 1,
+            image: {
+                    src: "oliver-talking-2.gif",
+                    alt: "Oliver the cat"
+            },
+            images: [
+                {
+                    src: "oliver-talking-2.gif",
+                    alt: "Oliver the cat"
+                },
+                {
+                    src: "b.gif",
+                    alt: "Britt's cat"
+                },
+                {
+                    src: "c.gif",
+                    alt: "Chris's cat"
+                },
+                {
+                    src: "../img/e.gif",
+                    alt: "Emily's cat"
+                }
+            ]
+        }
+    },
+    methods: {
+        getImg(img) {
+            return require(`../img/${img}`);
+        },
+        switchCat() {
+            this.image = this.images[this.index];
+            if (this.index < this.images.length - 1) {
+              this.index = this.index + 1;
+            } else {
+                (this.index = 0)
+            }  
+        }
+    }
 
 }
 </script>
