@@ -1,6 +1,8 @@
 package com.techelevator.services;
 
+import com.techelevator.model.Hit;
 import com.techelevator.model.HitListData;
+import com.techelevator.model.ResponseLink;
 import com.techelevator.model.ResponseObject;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class ResponseBuilder {
     private JokeService jokeService;
     private WordleService wordleService;
 
-    private List<String> prefixes = new ArrayList<String>(
+    private final List<String> prefixes = new ArrayList<>(
             List.of("Sure, I can help you with: ",
                     "Yes, let me show you what I know about: ",
                     "Ok, you want to know about: ",
@@ -44,7 +46,6 @@ public class ResponseBuilder {
     public ResponseObject getResponseObjectFromHitListData(HitListData h) {
 
         ResponseObject response = generateResponse(h);
-
 
         if (response.isEmpty()) {
             response = buildDefaultResponse();
@@ -91,18 +92,59 @@ public class ResponseBuilder {
 
         // private
 
-    private ResponseObject generateResponse(HitListData h){
+    private ResponseObject generateResponse(HitListData hitListData){
 
         ResponseObject ro = new ResponseObject();
+
+        if(hitListData.getNumUniqueCategories() > 0) {
+
+            String topCategory = hitListData.getCategoriesList().get(0);
+
+            if(topCategory.equals("joke")){
+                return getJoke();
+            }
+
+            if(topCategory.equals("quote")){
+                return getMotivationalQuote();
+            }
+
             Collections.shuffle(prefixes);
-            String pre = prefixes.get(0);
+            String messagePrefix = prefixes.get(0);
+            ro.setMessage(messagePrefix + topCategory);
 
-            String popularCategory = h.getCategoriesList().get(0);
+            List<ResponseLink> responseLinks = new ArrayList<>();
 
-            ro.setMessage(pre + popularCategory);
+            for(Hit hit : hitListData.getSortedHitList()){
 
+                ResponseLink responseLink = getResponseLinkFromHit(hit);
+
+                if(responseLink != null){
+                    responseLinks.add(responseLink);
+                }
+
+            }
+
+            for(ResponseLink link : responseLinks){
+                ro.addLink(link);
+            }
+        }
 
         return ro;
+    }
+
+    private ResponseLink getResponseLinkFromHit(Hit hit){
+
+        ResponseLink responseLink = null;
+
+        String category = hit.getCategory();
+
+        if(category.equals("curriculum")){
+            responseLink = new ResponseLink();
+            responseLink.setMessage("Here's a link for " + hit.getTopic() + ".");
+            responseLink.setUrl(hit.getExternalUrl());
+        }
+
+        return responseLink;
     }
 
 
