@@ -126,12 +126,4 @@ CREATE TABLE topic_to_keyword (
 	CONSTRAINT FK_to_keyword FOREIGN KEY (keyword_id) REFERENCES keyword (keyword_id)
 );
 
-CREATE TABLE calendar (
-	event_id int NOT NULL,
-	event_description varchar(500) NOT NULL UNIQUE,
-	event_date date,
-	event_time time,
-	CONSTRAINT PK_calendar PRIMARY KEY (event_id)
-);
-
 COMMIT TRANSACTION;

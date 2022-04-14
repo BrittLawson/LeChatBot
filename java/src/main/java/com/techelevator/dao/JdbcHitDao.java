@@ -31,7 +31,7 @@ public class JdbcHitDao implements HitDao {
             "JOIN external_link USING (external_link_id) " +
             "JOIN topic_to_keyword USING (topic_id) " +
             "JOIN keyword USING (keyword_id) " +
-            "WHERE keyword.keyword LIKE '%' || ? || '%' ; ";
+            "WHERE keyword.keyword ILIKE ? ;";
 
 
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, word);

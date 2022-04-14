@@ -26,9 +26,10 @@ public class HitListDataBuilder {
 
     // == methods ==
 
-    public HitListData getHitListDataFromListOfHits(List<Hit> hitList){
+    public HitListData getHitListDataFromQueryAndListOfHits(String query, List<Hit> hitList){
         reset();
         analyzeHitList(hitList);
+        hitListData.setQuery(query);
         return hitListData;
     }
 
