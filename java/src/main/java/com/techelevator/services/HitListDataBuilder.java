@@ -4,10 +4,7 @@ import com.techelevator.model.Hit;
 import com.techelevator.model.HitListData;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class HitListDataBuilder {
@@ -15,8 +12,6 @@ public class HitListDataBuilder {
     // == fields ==
 
     private HitListData hitListData;
-    private int numUniqueCategories;
-    private int numUniqueTopics;
     private Map<String, Integer> categoryFrequency;
     private Map<String, Integer> topicFrequency;
     private List<Hit> sortedHitList;
@@ -40,10 +35,52 @@ public class HitListDataBuilder {
     private void analyzeHitList(List<Hit> hitList){
 
         populateFrequencyTables(hitList);
+        populateSortedHitList(hitList);
+        populateCategories();
+        populateTopics();
+
+        hitListData.setSortedHitList(sortedHitList);
+        hitListData.setCategoriesList(sortedCategoriesList);
+        hitListData.setTopicsList(sortedTopicsList);
+        hitListData.setCategoryFrequency(categoryFrequency);
+        hitListData.setTopicFrequency(topicFrequency);
+        hitListData.setNumUniqueCategories(sortedCategoriesList.size());
+        hitListData.setNumUniqueTopics(sortedTopicsList.size());
+
+    }
+
+    private void populateCategories(){
+        for(String category : categoryFrequency.keySet()){
+            sortedCategoriesList.add(category);
+        }
+
+        Collections.sort(sortedCategoriesList, (o1, o2) -> {
+
+            if(!categoryFrequency.containsKey(o2)) return -1;
+            if(!categoryFrequency.containsKey(o2)) return 1;
+
+            return categoryFrequency.get(o2) - categoryFrequency.get(o1);
+        });
+
+    }
+
+    private void populateTopics(){
+        for(String topic : topicFrequency.keySet()){
+            sortedTopicsList.add(topic);
+        }
+
+        Collections.sort(sortedTopicsList, (o1, o2) -> {
+
+            if(!topicFrequency.containsKey(o2)) return -1;
+            if(!topicFrequency.containsKey(o1)) return 1;
+
+            return topicFrequency.get(o2) - topicFrequency.get(o1);
+        });
 
     }
 
     private void populateFrequencyTables(List<Hit> hitList){
+
         for(Hit hit : hitList){
 
             String topic = hit.getTopic();
@@ -53,6 +90,19 @@ public class HitListDataBuilder {
             addOrIncrementCategory(category);
 
         }
+
+    }
+
+    private void populateSortedHitList(List<Hit> hitList){
+        sortedHitList = new ArrayList<>(new HashSet<>(hitList));
+
+        Collections.sort(sortedHitList, (o1, o2) -> {
+            if(o1.getCategory().equals(o2.getCategory())){
+                return topicFrequency.get(o2.getTopic()) - topicFrequency.get(o1.getTopic()) ;
+            } else {
+                return categoryFrequency.get(o2.getCategory()) - categoryFrequency.get(o2.getCategory());
+            }
+        });
     }
 
     private void addOrIncrementTopic(String topic){
@@ -65,42 +115,16 @@ public class HitListDataBuilder {
     private void addOrIncrementCategory(String category){
         Integer i = categoryFrequency.putIfAbsent(category, 1);
         if(i != null){
-            topicFrequency.put(category, i+1);
+            categoryFrequency.put(category, i+1);
         }
     }
-
 
     private void reset(){
-        numUniqueCategories = 0;
-        numUniqueTopics = 0;
-
-        Map<String, Integer> categoryFrequency = new HashMap<>();
-        Map<String, Integer> topicFrequency = new HashMap<>();
-        List<Hit> sortedHitList = new ArrayList<>();
-        List<String> categoriesList = new ArrayList<>();
-        List<String> topicsList = new ArrayList<>();
-    }
-
-    private List<String> getSortedCategories(List<Hit> rawHitList){
-        return null;
-    }
-
-    public List<String> getSortedTopics(List<Hit> rawHitList){
-        return null;
-    }
-
-    private List<Hit> getSortedHits(List<Hit> rawHitList){
-
-        Map<Hit, Integer> hitFrequencyMap = new HashMap<>();
-
-        for(Hit h : rawHitList){
-            Integer i = hitFrequencyMap.putIfAbsent(h, 1);
-
-            if(i != null){
-                hitFrequencyMap.put(h, i + 1);
-            }
-        }
-
-        return null;
+        categoryFrequency = new HashMap<>();
+        topicFrequency = new HashMap<>();
+        sortedHitList = new ArrayList<>();
+        sortedCategoriesList = new ArrayList<>();
+        sortedTopicsList = new ArrayList<>();
+        hitListData = new HitListData();
     }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="message-container">
       <span class="profile-pic">
-        <img src="..\img\oliver-talking-2.gif" alt="">
+        <img src="../img/oliver-talking-2.gif" alt="">
       </span>
       <span class="speech-bubble">
             {{ speechText }}

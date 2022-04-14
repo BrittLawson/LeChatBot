@@ -13,7 +13,6 @@ public class WordleService {
         LocalDate today = LocalDate.now();
         LocalDate start = LocalDate.of(2022, 2, 1);
         int index = (int) ChronoUnit.DAYS.between(start, today);
-        System.out.println(index);
         return WORDLIST[index].toUpperCase();
     }
 

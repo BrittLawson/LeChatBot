@@ -14,7 +14,6 @@ import java.util.List;
 public class ResponseService {
 
     // == fields ==
-    private static final String DEFAULT_RESPONSE_MESSAGE = "Sorry, I didn't find anything relevant. Here's a motivational quote:";
     private HitDao hitDao;
     private HitListDataBuilder hitListDataBuilder;
     private ResponseBuilder responseBuilder;
@@ -35,14 +34,14 @@ public class ResponseService {
 
     public ResponseObject getResponseForQuery(String query, Principal principal){
 
+        if(query.toLowerCase().contains("wordle")){
+            return getTodaysWordleSolution();
+        }
+
         HitListData hitListData = getHitListDataForQuery(query);
         ResponseObject response = responseBuilder.getResponseObjectFromHitListData(hitListData);
         return response;
 
-    }
-
-    public ResponseObject getResponseForQueryInTopic(String query, String topic, Principal principal){
-        return null;
     }
 
     public ResponseObject getJoke(){
@@ -57,6 +56,10 @@ public class ResponseService {
         return responseBuilder.buildDefaultResponse();
     }
 
+    public ResponseObject getTodaysWordleSolution(){
+        return responseBuilder.getTodaysWordleSolution();
+    }
+
     private HitListData getHitListDataForQuery(String query){
         List<Hit> hitList = getHitListForQuery(query);
         return hitListDataBuilder.getHitListDataFromListOfHits(hitList);
@@ -67,9 +70,6 @@ public class ResponseService {
         return hitDao.getHits(keywords);
     }
 
-    public ResponseObject getTodaysWordleSolution(){
-        return responseBuilder.getTodaysWordleSolution();
-    }
 
 
 }

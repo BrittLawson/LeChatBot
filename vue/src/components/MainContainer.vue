@@ -1,7 +1,7 @@
 <template>
   <body class="main-container">
       <div class="icon">
-          <img src="..\img\TechElevator_PBS_RGB_ccexpress.png">
+          <img src="../img/TechElevator_PBS_RGB_ccexpress.png">
       </div>    
       <div class="header">
         <h1>le chat bot.</h1>

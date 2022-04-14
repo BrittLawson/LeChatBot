@@ -24,11 +24,6 @@ public class ChatResponseController {
         return responseService.getResponseForQuery(query, principal);
     }
 
-    @RequestMapping(path = "/response/{topic}", method = RequestMethod.GET)
-    public ResponseObject getResponseForQuery(@RequestParam String query, @PathVariable String topic, Principal principal) {
-        return responseService.getResponseForQueryInTopic(query, topic, principal);
-    }
-
     @RequestMapping(path = "/response/default", method = RequestMethod.GET)
     public ResponseObject getDefaultResponse() {
         return responseService.getDefaultResponse();

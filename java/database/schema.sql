@@ -22,7 +22,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 --EKS inserted code below:
 
-DROP TABLE IF EXISTS category, modules, lesson, link, topic, keyword, topic_to_keyword, calendar, open_positions;
+DROP TABLE IF EXISTS category, modules, lesson, external_link, topic, keyword, topic_to_keyword, calendar, open_positions;
 DROP SEQUENCE IF EXISTS seq_category_id, seq_module_id, seq_lesson_id, seq_external_link_id, seq_keyword_id, seq_topic_id, seq_topic_to_keyword_id;
 
 CREATE SEQUENCE seq_category_id

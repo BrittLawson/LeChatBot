@@ -22,8 +22,6 @@ public class JdbcDataInputDao implements DataInputDao {
 
     private File inputFile;
 
-
-
     public JdbcDataInputDao(DataSource dataSource){
 
         this.jdbcTemplate = new JdbcTemplate(dataSource);
