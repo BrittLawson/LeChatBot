@@ -60,7 +60,29 @@ export default new Vuex.Store({
             name: "Chewy"
           }
         ]
-      }
+      },
+      pathwayTopics: [
+        {
+          id: 1,
+          routeName: "EmployerFollowUp",
+          linkText: "Learn about how best to follow up with an employer."
+        },
+        {
+          id: 2,
+          routeName: "InterviewFashion",
+          linkText: "Dress to impress for your interviews."
+        },
+        {
+          id: 3,
+          routeName: "InterviewPrep",
+          linkText: "Prepare for that interview you're so excited about."
+        },
+        {
+          id: 4,
+          routeName: "StarQuestions",
+          linkText: "Learn how to ace those STAR questions."
+        }
+      ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
