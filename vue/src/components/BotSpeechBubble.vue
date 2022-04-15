@@ -34,14 +34,14 @@ export default {
     color: #F5F7F3;
     border-radius: 8px;
     flex-grow: 1;
-    max-height: 10vh;
+    max-height: 8vh;
     margin-left: 20px;
     margin-right: 20px;
     padding: 10px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 2vw;
+    font-size: 3vh;
     text-align: center;
     min-height: 7%;
 }

@@ -1,9 +1,8 @@
 <template>
   <div class="chat-container">
-      <div>
-          <chat-bot-intro v-if="$store.state.nameOfCurrentUser==''"/>
-          <chat-bot v-else />
-      </div>
+      <chat-bot-intro v-if="$store.state.nameOfCurrentUser==''"/>
+      <chat-bot v-else />
+      
   </div>
 </template>
 

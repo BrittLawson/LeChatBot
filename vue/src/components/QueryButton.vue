@@ -1,8 +1,6 @@
 <template>
-  <button v-on:click="makeQuery(buttonText)" :disabled="$store.state.nameOfCurrentUser==''">
-      <p>
-          {{ buttonText }}
-      </p>    
+  <button v-on:click="makeQuery(buttonText)" :disabled="$store.state.nameOfCurrentUser==''"> 
+          {{ buttonText }}     
   </button>
 </template>
 
