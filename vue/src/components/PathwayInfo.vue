@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="topic in $store.state.pathwayTopics" :key="topic.id">
-      <router-link :to="{ name: topic.routeName }">{{ topic.linkText }}</router-link>
-    </div>
+    <section v-for="topic in $store.state.pathwayTopics" :key="topic.id">
+        <router-link :to="{ name: topic.routeName }">{{ topic.linkText }}</router-link>
+    </section>
   </div>
 </template>
 
