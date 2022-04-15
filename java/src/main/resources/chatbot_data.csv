@@ -1,57 +1,60 @@
 topic_id,topic,keywords,category,Module/section,External Link
-1,event,calendar | event | schedule | upcoming | date | time | pathway ,calendar,M0L0,https://www.meetup.com/find/?keywords=technology&location=us--pa--Pittsburgh&source=EVENTS
-2,job postings,interview | job | job posting | postings | requisition | job requisition | employment | employer | find job | open job | interview,jobs,M0L0,https://www.indeed.com/jobs?q=software&l=Pittsburgh%2C+PA&explvl=entry_level&vjk=5957f8ca6fc9f472
-3,joke,joke | funny | frustrated | annoyed | bad | no horrible | hate | disaster | anger | angry | mad,joke,M0L0,M0L0
-4,employer follow-up,interview | followup | post-interview,pathway,M0L0,M0L0
-5,interview fashion,interview | wear | dreass | tie | suit | dressed-up,pathway,M0L0,M0L0
-6,interview preparation,interview | preparation | prepare | technical interview | star | starting salary | salary | wear | dreass | tie | suit | dressed-up,pathway,M0L0,M0L0
-7,sample STAR interview question,sample | interview | sample questions | sample interview questions | star | behavioral interview,pathway,M0L0,M0L0
-8,cover letter,cover | cover letter | write | cv | curriculum vitae | apply | job | interview,interview,M0L0,https://www.themuse.com/advice/how-to-write-a-cover-letter-31-tips-you-need-to-know
-9,resume,resume | write | interview | apply | job | experience,interview,M0L0,https://www.linkedin.com/pulse/game-thrones-guide-creating-killer-resume-emer-mccann-she-her-/
-10,linkedin,social media | linked-in | linked in | profile,interview,M0L0,https://www.forbes.com/sites/williamarruda/2017/01/15/linkedin-101-how-to-craft-a-stellar-profile/?sh=74fd86415379
-11,terminal,terminal | cli,curriculum,M1L1,https://tutorial.djangogirls.org/en/intro_to_command_line/
-12,java,java,curriculum,M1L3,https://www.geeksforgeeks.org/introduction-to-java/
-13,intellij,intellij,curriculum,M1L1,https://www.youtube.com/watch?v=GSKERVTMWqs
-14,postgresql,postgres | data | database,curriculum,M2L12,https://www.google.com/
-15,postman,postman,curriculum,M2L12,https://www.google.com/
-16,npm,npm | node.js | package manager,curriculum,M0L0,https://www.google.com/
-17,git,version control | repo | merge | merge conflict | branch | trunk,curriculum,M1L1,https://www.google.com/
-18,java primitive variables,variable | variable types | int | integer | long | double float | boolean | char | java,curriculum,M1L2,https://www.google.com/
-19,java logical branching,if | if else | java,curriculum,M1L3,https://www.google.com/
-20,java loops and arrays ,array | loop | while | for loop | do while | java,curriculum,M1L4,https://www.google.com/
-21,java command-line programs,cli | java,curriculum,M1L5,https://www.google.com/
-22,java objects,object | java,curriculum,M1L6,https://www.google.com/
-23,java collections - stacks and queues ,list | stack | queue | collection,curriculum,M1L7,https://www.google.com/
-24,java collections - maps and sets,map | set | collection,curriculum,M1L8,https://www.google.com/
-25,classes and encapsulation,encapsulation,curriculum,M1L9,https://www.google.com/
-26,inheritance,inheritance | parent | child,curriculum,M1L11,https://www.google.com/
-27,polymorphism,polymorphism,curriculum,M1L12,https://www.google.com/
-28,unit testing,test | unit | testing,curriculum,M1L14,https://www.google.com/
-29,java error handling,error | error handling | exception | exception handling | try | catch,curriculum,M1L16,https://www.google.com/
-30,java file input/output,file input | file output | i/o | input/output,curriculum,M1L17,https://www.google.com/
-31,sql,sql,curriculum,M2L1,https://www.google.com/
-32,sql: ordering and limiting,ordering | limiting | grouping | order | limit | group,curriculum,M2L2,https://www.google.com/
-33,sql joins,sql join | join | joins,curriculum,M2L3,https://www.google.com/
-34,sql: inserting and updating ,sql | create | insert | update | delete | creating | deleting | updating | inserting | crud,curriculum,M2L4,https://www.google.com/
-35,sql relational data,sql | data | relation | relational | relationship | relational data | database | design,curriculum,M2L5,https://www.google.com/
-36,data access object,dao,curriculum,M2L6,https://www.google.com/
-37,dao testing,dao | test | testing,curriculum,M2L7,https://www.google.com/
-38,data security,data | security,curriculum,M2L8,https://www.google.com/
-39,consuming restful apis,api | apis | web api | http api | consume api | consume | rest | restful rest api | restful api,curriculum,M2L11,https://www.google.com/
-40,server-side apis,server | spring | spring boot,curriculum,M2L13,https://www.google.com/
-41,model view controller,mvc | model | view | controller,curriculum,M2L13,https://www.google.com/
-42,securing apis,authentication | dependency injection,curriculum,M2L16,https://www.google.com/
-43,html,html,curriculum,M3L1,https://www.google.com/
-44,css,css,curriculum,M3L2,https://www.google.com/
-45,grid,grid,curriculum,M3L3,https://cssgridgarden.com/
-46,flexbox,flexbox | flex,curriculum,M3L4,https://flexboxfroggy.com/
-47,automated testing,test | automated,curriculum,M3L5,https://www.google.com/
-48,javascript,javascript,curriculum,M3L6,https://www.google.com/
-49,javascript functions,javascript,curriculum,M3L7,https://www.google.com/
-50,dom,dom | document object model,curriculum,M3L8,https://www.google.com/
-51,javascript event handling,javascript | js | event handling | event,curriculum,M3L9,https://www.google.com/
-52,vue js,vue | vuejs | vue js,curriculum,M3L11,https://www.google.com/
-53,vue js event handling,vue | vuejs | vue js | event handling | events |,curriculum,M3L13,https://www.google.com/
-54,vue js components,vue | vue component | component | communication | component communication,curriculum,M3L14,https://www.google.com/
-55,vue js router,vue | vuejs | vue js | vue router | route | router,curriculum,M3L17,https://www.google.com/
-56,web services,web service | service | microservice | asynchronous,curriculum,M3L18,https://www.google.com/
+1,event,calendar | event | schedule | upcoming | date | time | pathway | networking | connections | meetups | meetup,calendar,M0L0,https://www.meetup.com/find/?keywords=technology&location=us--pa--Pittsburgh&source=EVENTS
+2,job postings,interview | job | job posting | postings | requisition | job requisition | employment | employer | find job | open job | interviews | job search | search | posting | requisitions | job requisitions | employers | find jobs | indeed | linkedin | huntr | job board | job boards | resume | glassdoor | handshake | monster | career builder ,jobs,M0L0,https://www.indeed.com/jobs?q=software&l=Pittsburgh%2C+PA&explvl=entry_level&vjk=5957f8ca6fc9f472
+3,joke,joke | funny | frustrated | annoyed | bad | no horrible | hate | disaster | anger | angry | mad | fuck | fucked | damn | goddammit | asshole,joke,M0L0,M0L0
+4,quote,inspriation | quote | motivation,quote,M0L0,M0L0
+5,employer follow-up,interview | followup | post-interview | thank you | offer | pathway,pathway,M0L0,M0L0
+6,interview fashion,interview | wear | dress | tie | suit | dressed-up | what should i | business | formal | neutral | blazer | button-up | slacks | pathway,pathway,M0L0,https://www.indeed.com/career-advice/interviewing/what-to-wear-to-an-interview
+7,interview preparation,interview | preparation | prepare | technical interview | star | starting salary | salary | wear | dress | tie | suit | dressed-up | behavioral interview | technical | behavioral | superhero pose | resume | research | study | pathway,pathway,M0L0,M0L0
+8,sample STAR interview question,sample | interview | sample questions | sample interview questions | star | behavioral interview | hr | human resources | culture | culture fit | body language | non-verbals | strengths | weaknesses | salary | salary requirements | prepare | situation | task | action | result | pathway,pathway,M0L0,https://www.themuse.com/advice/behavioral-interview-questions-answers-examples
+9,cover letter,cover | cover letter | write | cv | curriculum vitae | apply | job | interview | pathway,interview,M0L0,https://www.themuse.com/advice/how-to-write-a-cover-letter-31-tips-you-need-to-know
+10,resume,resume | write | interview | apply | job | experience | resume revision | skills | education | professional experience | summary | action verbs | rubric | pathway,interview,M0L0,https://www.linkedin.com/pulse/game-thrones-guide-creating-killer-resume-emer-mccann-she-her-/
+11,linkedin,social media | linked-in | linked in | profile | connections | networking | follow-up | connect | connect with | message | in mail | linkedin premium | pathway,interview,M0L0,https://www.forbes.com/sites/williamarruda/2017/01/15/linkedin-101-how-to-craft-a-stellar-profile/?sh=74fd86415379
+,elevator pitch,elevator pitch | video | elevator | pitch | speech | thirty seconds | employer showcase | strengths | goal | personality | clifton strengths,elevator pitch,M0L0,https://www.thebalancecareers.com/elevator-speech-examples-and-writing-tips-2061976
+,clifton strengths,clifton strengths | clifton | strengths | talents | leadership | executing | influencing | relationship building | strategic thinking | achiever | activator | adaptability | analytical | arranger | belief | command | communication | competition | connectedness | consistency | context | deliberative | developer | discipline | empathy | focus | futuristic | harmony | ideation | includer | individualization | input | intellection | learner | maximizer | positivity | relator | responsibility | restorative | self-assurance | self assurance | significance | strategic | woo,pathway,M0L0,https://www.uschamber.com/co/grow/thrive/cliftonstrengths-assessment
+12,terminal,terminal | cli,terminal,M1L1,https://tutorial.djangogirls.org/en/intro_to_command_line/
+13,java,java,java,M1L3,https://www.geeksforgeeks.org/introduction-to-java/
+14,intellij,intellij,tools,M1L1,https://www.youtube.com/watch?v=GSKERVTMWqs
+15,postgresql,postgres | data | database,tools,M2L12,https://www.postgresql.org/docs/current/index.html
+16,postman,postman,tools,M2L12,https://learning.postman.com/docs/getting-started/introduction/
+17,npm,npm | node.js | package manager,tools,M0L0,https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/
+18,git,git | version control | repository | repo | merge | merge conflict | branch | trunk | github,tools,M1L1,https://git-scm.com/
+19,java primitive variables,variable | variable types | int | integer | long | double float | boolean | char | java,java,M1L2,https://www.google.com/
+20,java logical branching,if | if else | java,java,M1L3,https://www.google.com/
+21,java loops and arrays ,array | loop | while | for loop | do while | java,java,M1L4,https://www.google.com/
+22,java command-line programs,cli | java,java,M1L5,https://www.google.com/
+23,java objects,object | java,java,M1L6,https://www.google.com/
+24,java collections - stacks and queues ,list | stack | queue | collection,java,M1L7,https://www.google.com/
+25,java collections - maps and sets,map | set | collection,java,M1L8,https://www.google.com/
+26,java classes and encapsulation,encapsulation,java,M1L9,https://www.google.com/
+27,java inheritance,inheritance | parent | child,java,M1L11,https://www.google.com/
+28,java polymorphism,polymorphism | polymorphic,java,M1L12,https://www.google.com/
+29,unit testing,test | unit | testing,java,M1L14,https://www.google.com/
+30,java error handling,error | error handling | exception | exception handling | try | catch,java,M1L16,https://www.google.com/
+31,java file input/output,file input | file output | i/o | input/output,java,M1L17,https://www.google.com/
+32,sql,sql,sql,M2L1,https://www.google.com/
+33,sql: ordering and limiting,ordering | limiting | grouping | order | limit | group,sql,M2L2,https://www.google.com/
+34,sql joins,sql join | join | joins,sql,M2L3,https://www.google.com/
+35,sql: inserting and updating ,sql | create | insert | update | delete | creating | deleting | updating | inserting | crud,sql,M2L4,https://www.google.com/
+36,sql relational data,sql | data | relation | relational | relationship | relational data | database | design,sql,M2L5,https://www.google.com/
+37,data access object,dao,data,M2L6,https://www.google.com/
+38,dao testing,dao | test | testing,data,M2L7,https://www.google.com/
+39,data security,data | security,data,M2L8,https://www.google.com/
+40,consuming restful apis,api | apis | web api | http api | consume api | consume | rest | restful rest api | restful api,apis,M2L11,https://www.google.com/
+41,server-side apis,server | spring | spring boot,apis,M2L13,https://www.google.com/
+42,model view controller,mvc | model | view | controller | api,mvc,M2L13,https://www.google.com/
+43,securing apis,authentication | dependency injection | api,apis,M2L16,https://www.google.com/
+44,html,html,front-end,M3L1,https://www.google.com/
+45,css,css,front-end,M3L2,https://www.google.com/
+46,grid,grid,front-end,M3L3,https://cssgridgarden.com/
+47,flexbox,flexbox | flex,front-end,M3L4,https://flexboxfroggy.com/
+48,automated testing,test | automated,testing,M3L5,https://www.google.com/
+49,javascript,javascript,javascript,M3L6,https://www.google.com/
+50,javascript functions,javascript,javascript,M3L7,https://www.google.com/
+51,dom,dom | document object model,front-end,M3L8,https://www.google.com/
+52,javascript event handling,javascript | js | event handling | event,javascript,M3L9,https://www.google.com/
+53,vue js,vue | vuejs | vue js,vue,M3L11,https://www.google.com/
+54,vue js event handling,vue | vuejs | vue js | event handling | events |,vue,M3L13,https://www.google.com/
+55,vue js components,vue | vue component | component | communication | component communication,vue,M3L14,https://www.google.com/
+56,vue js router,vue | vuejs | vue js | vue router | route | router,vue,M3L17,https://www.google.com/
+57,web services,web service | service | microservice | asynchronous,apis,M3L18,https://www.google.com/
