@@ -146,7 +146,7 @@ public class ResponseBuilder {
 
         if(!category.equals("pathway")){
             responseLink = new ResponseLink();
-            responseLink.setMessage("Here's a link for " + hit.getTopic() + ".");
+            responseLink.setMessage("This topic was covered in " + hit.getModule() + ". Here's a link for " + hit.getTopic() + "." ) ;
             responseLink.setUrl(hit.getExternalUrl());
         } else {
             responseLink = new ResponseLink();
