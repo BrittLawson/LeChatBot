@@ -24,7 +24,43 @@ export default new Vuex.Store({
     currentQueryString: '',
     currentResponseObject: {
       message: ""
-    }
+    },
+    currentCat: {
+      src: "oliver-talking-2.gif",
+      alt: "Oliver the cat",
+      name: "Oliver"
+    },
+    cats: {
+      index: 1,
+      catsArray: 
+        [
+          {
+            src: "oliver-talking-2.gif",
+            alt: "Oliver the cat",
+            name: "Oliver"
+          },
+          {
+            src: "b.gif",
+            alt: "Elmo the cat",
+            name: "Elmo"
+          },
+          {
+            src: "c.gif",
+            alt: "Roosevelt the cat",
+            name: "Roosevelt"
+          },
+          {
+            src: "e.gif",
+            alt: "Roo the cat",
+            name: "Roo"
+          },
+          {
+            src: "a.gif",
+            alt: "Chewy the cat",
+            name: "Chewy"
+          }
+        ]
+      }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -51,6 +87,14 @@ export default new Vuex.Store({
     },
     SET_RESPONSE_OBJECT(state, response) {
       state.currentResponseObject = response.data;
+    },
+    SWITCH_CAT(state) {
+      state.currentCat = state.cats.catsArray[state.cats.index];
+      if (state.cats.index < state.cats.catsArray.length - 1) {
+        state.cats.index = state.cats.index + 1;
+      } else {
+        (state.cats.index = 0);
+      }
     }
   }
 })
