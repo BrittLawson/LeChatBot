@@ -1,7 +1,7 @@
 <template>
   <div class="message-container">
-      <span id="profile-pic">
-        <img src="../img/oliver-talking-2.gif" alt="">
+      <span class="profile-pic">
+        <img :src="getImg($store.state.currentCat.src)" :alt="$store.state.currentCat.alt" @dblclick="switchCat">
       </span>
       <span id="bot-bubble" class="bubble">
             {{ speechText }}
@@ -12,7 +12,15 @@
 <script>
 export default {
     name: "bot-speech-bubble",
-    props: ["speechText"]
+    props: ["speechText"],
+    methods: {
+        getImg(img) {
+            return require(`../img/${img}`);
+        },
+        switchCat() {
+            this.$store.commit('SWITCH_CAT');
+        }
+    }
 
 }
 </script>

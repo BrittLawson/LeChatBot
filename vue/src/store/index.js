@@ -25,7 +25,65 @@ export default new Vuex.Store({
     currentResponseObject: {
       message: "",
       links: []
-    }
+    },
+    currentCat: {
+      src: "oliver-talking-2.gif",
+      alt: "Oliver the cat",
+      name: "Oliver"
+    },
+    cats: {
+      index: 1,
+      catsArray: 
+        [
+          {
+            src: "oliver-talking-2.gif",
+            alt: "Oliver the cat",
+            name: "Oliver"
+          },
+          {
+            src: "b.gif",
+            alt: "Elmo the cat",
+            name: "Elmo"
+          },
+          {
+            src: "c.gif",
+            alt: "Roosevelt the cat",
+            name: "Roosevelt"
+          },
+          {
+            src: "e.gif",
+            alt: "Roo the cat",
+            name: "Roo"
+          },
+          {
+            src: "a.gif",
+            alt: "Chewy the cat",
+            name: "Chewy"
+          }
+        ]
+      },
+      pathwayTopics: [
+        {
+          id: 1,
+          routeName: "EmployerFollowUp",
+          linkText: "Learn about how best to follow up with an employer."
+        },
+        {
+          id: 2,
+          routeName: "InterviewFashion",
+          linkText: "Dress to impress for your interviews."
+        },
+        {
+          id: 3,
+          routeName: "InterviewPrep",
+          linkText: "Prepare for that interview you're so excited about."
+        },
+        {
+          id: 4,
+          routeName: "StarQuestions",
+          linkText: "Learn how to ace those STAR questions."
+        }
+      ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -52,6 +110,14 @@ export default new Vuex.Store({
     },
     SET_RESPONSE_OBJECT(state, response) {
       state.currentResponseObject = response.data;
+    },
+    SWITCH_CAT(state) {
+      state.currentCat = state.cats.catsArray[state.cats.index];
+      if (state.cats.index < state.cats.catsArray.length - 1) {
+        state.cats.index = state.cats.index + 1;
+      } else {
+        (state.cats.index = 0);
+      }
     }
   }
 })

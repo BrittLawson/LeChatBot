@@ -1,7 +1,8 @@
 <template>
   <div class = "bot-container">
-    <bot-speech-bubble :speechText="'Hi! My name is Oliver!  What\'s your name?'"/>
-    <chat-bot-intro-input/>
+    <bot-speech-bubble :speechText="getIntroText"/>
+    <div class = "spacer"></div>
+    <chat-bot-intro-input class="input-field"/>
   </div>
 </template>
 
@@ -12,6 +13,12 @@ export default {
   components: {
     ChatBotIntroInput,
     BotSpeechBubble
+  },
+  computed: {
+    getIntroText() {
+      let catName = this.$store.state.currentCat.name;
+      return "Hi! My name is " + catName + "!  What's your name?";
+    }
   }
 }
 </script>
