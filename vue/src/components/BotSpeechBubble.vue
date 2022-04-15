@@ -1,6 +1,6 @@
 <template>
   <div class="message-container">
-      <span class="profile-pic">
+      <span id="profile-pic">
         <img :src="getImg($store.state.currentCat.src)" :alt="$store.state.currentCat.alt" @dblclick="switchCat">
       </span>
       <span id="bot-bubble" class="bubble">
