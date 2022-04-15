@@ -1,6 +1,6 @@
 <template>
   <div class="message-container">
-      <span class="query-bubble">
+      <span id="query-bubble" class="bubble">
             {{ speechText }}
       </span>
   </div>
@@ -13,25 +13,9 @@ export default {
 }
 </script>
 
-<style>
-.message-container {
-    display: flex;
-}
+<style style="scoped">
 
-.query-bubble {
+#query-bubble {
     background-color: #1F2B4A;
-    color: #F5F7F3;
-    border-radius: 8px;
-    flex-grow: 1;
-    max-height: 8vh;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 5px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vh;
-    text-align: center;
-    min-height: 7%;
 }
 </style>

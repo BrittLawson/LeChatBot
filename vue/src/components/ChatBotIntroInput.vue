@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="input-field">
     <input type="text" v-model="userName" v-on:keyup.enter="saveName" placeholder="Type your name here">
     <button type="submit" @click.prevent="saveName">Submit</button>
   </div>

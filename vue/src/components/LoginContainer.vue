@@ -1,45 +1,45 @@
 <template>
-  <div class="login-container">
-      <bot-speech-bubble v-if="!invalidCredentials && !this.$route.query.registration" :speechText="'Meow! I\'m Oliver, your friendly Tech Elevator chat bot! Before we do anything else, let\'s get you logged in!'" />
-        <form class="form-signin" @submit.prevent="login">
-        <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      ><bot-speech-bubble :speechText="'Meow! Invalid username and password!'" /></div>
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration"
-      ><bot-speech-bubble :speechText="'Thank you for registering, meow! Please sign in!'" /></div>
-      <div class="input-container">
-         <input
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <br>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      /> 
-      <br>
-      <button class="signin-button" type="submit">Sign me in!</button>
-      </div>
-      <div class="button-container">
-        <br>
-        <button class="register-button" v-on:click="register()">I'd like to make an account, please!</button>
-      </div>
+  <div class="content-container">
+    <div class="bot-container">
       
-    </form>
+      <bot-speech-bubble v-if="!invalidCredentials && !this.$route.query.registration" :speechText="'Meow! I\'m Oliver, your friendly Tech Elevator chat bot! Before we do anything else, let\'s get you logged in!'" />
+      <bot-speech-bubble v-if="invalidCredentials" :speechText="'Meow! Invalid username and password!'" /> 
+      <bot-speech-bubble v-if="this.$route.query.registration" :speechText="'Thank you for registering, meow! Please sign in!'" />  
+      
+      <form class="form-login" @submit.prevent="login">
+        <div class="input-container">
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Username"
+            v-model="user.username"
+            required
+            autofocus 
+          />
+            
+            
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            v-model="user.password"
+            required 
+         /> 
+            
+
+          
+          
+          </div>
+          
+          <div class="button-container">
+          <button class="login-button" type="submit">Sign me in!</button>
+          <button class="login-button" v-on:click="register()">I'd like to make an account, please!</button>
+          </div>
+      
+      </form>
+    </div>
   </div>
 </template>
 
@@ -97,18 +97,9 @@ export default {
 
 <style>
 
-.login-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
 .input-container {
     display: flex;
+    align-items: center;
 }
 
 .button-container {
@@ -117,45 +108,18 @@ export default {
     justify-content: center;
 }
 
-.form-signin {
+.form-login {
     height: 100%;
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
 
-.form-control {
-    height: 50px;  
-    font-size: 1.5em;
-    margin: 15px;
+.login-button {
+  margin: 10px;
 }
 
-button {
-    height: 50px;
-    min-width: 150px;
-    margin-top: 15px;
-    margin-left: 25px;
-    background-color: white;
-    color: #1F2B4A;
-    border: 2px solid #1F2B4A;
-    border-radius: 4px;
-}
 
-button:hover {
-    background-color: #04ACF4;
-    color: white;
-}
-
-.register-button {
-    height: 50px;
-
-    margin-left: 25px;
-    background-color: white;
-    color: #1F2B4A;
-    border: 2px solid #1F2B4A;
-    border-radius: 4px;
-}
 
 </style>

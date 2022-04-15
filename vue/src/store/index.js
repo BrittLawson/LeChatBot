@@ -23,7 +23,8 @@ export default new Vuex.Store({
     nameOfCurrentUser: '',
     currentQueryString: '',
     currentResponseObject: {
-      message: ""
+      message: "",
+      links: []
     }
   },
   mutations: {

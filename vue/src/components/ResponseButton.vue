@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="buttonClick()">
+  <button id="response-button" v-on:click="buttonClick()">
       {{ responseLink.message }}
   </button>
 </template>

@@ -1,8 +1,7 @@
 <template>
-  <div class="chat-container">
+  <div class="content-container">
       <chat-bot-intro v-if="$store.state.nameOfCurrentUser==''"/>
       <chat-bot v-else />
-      
   </div>
 </template>
 
@@ -19,45 +18,34 @@ export default {
 }
 </script>
 
-<style style="scoped">
-    div {
-        height: 98%;
-    }
-
-    .bot-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
+<style>
 
   .input-field {
-    max-height: 100px;
+    height: 12vh;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    padding-left: 20px;
-    padding-right: 20px;
+    align-items: center;
   }
 
   .input-field input{
-    height: 50px;  
+    height: 8vh; 
     flex-grow: 1;
-    font-size: 1.5em;
+    font-size: 5vh;
+    margin: 10px;
   }
 
-  .input-field button {
-    height: 50px;
-    width: 100px;
-    margin-left: 25px;
-    background-color: white;
-    color: #1F2B4A;
-    border: 2px solid #1F2B4A;
-    border-radius: 4px;
-  }
+  .message-container {
+    display: flex;
+    height: 10vh;
+ }
 
-  .input-field button:hover {
-    background-color: #04ACF4;
-    color: white;
-  }
+ #rbc {
+   width: 100%;
+   display: flex;
+   justify-content: space-evenly;
+ }
+
+ 
+
 </style>

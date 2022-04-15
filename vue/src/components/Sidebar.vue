@@ -1,11 +1,11 @@
 <template>
   <div class="sidebar">
-      <query-button class="button" :button-text="'I need information about something in Pathway.'" />
-      <query-button class="button" :button-text="'I need information about the curriculum.'" />
-      <query-button class="button" :button-text="'What\'s on the calendar today?'" />
-      <query-button class="button" :button-text="'Where can I learn more about Java?'" />
-      <query-button class="button" :button-text="'Where can I learn more about Vue.js?'" />
-      <button class="button" v-on:click="logout()" :disabled="$store.state.nameOfCurrentUser==''">
+      <query-button :button-text="'I need information about something in Pathway.'" />
+      <query-button :button-text="'I need information about the curriculum.'" />
+      <query-button :button-text="'What\'s on the calendar today?'" />
+      <query-button :button-text="'Where can I learn more about Java?'" />
+      <query-button :button-text="'Where can I learn more about Vue.js?'" />
+      <button class="query-button" v-on:click="logout()" :disabled="$store.state.nameOfCurrentUser==''">
         <p>I'd like to log out, please!</p>    
       </button>    
   </div>
@@ -42,24 +42,10 @@ export default {
     height: 100%;
 }
 
-.button {
-    font-family: 'Roboto', sans-serif;
-    background-color: #F5F7F3;
-    border: none;
-    color: #1F2B4A;
-    text-align: center;
-    border-radius: 4px;
+.query-button {
     margin: 5px;
     width: 90%;
 }
 
-.button:hover {
-    background-color: white;
-    color: #1F2B4A;
-}
 
-.button:disabled,
-.button[disabled] {
-    background-color: #F5F7F3;
-}
 </style>
