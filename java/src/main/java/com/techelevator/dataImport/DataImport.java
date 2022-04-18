@@ -17,8 +17,8 @@ public class DataImport {
         dataSource.setPassword("postgres1");
 
         JdbcDataInputDao importData = new JdbcDataInputDao(dataSource);
-        importData.updateBasicData();
-        importData.updateTopicData();
+        importData.clearData();
+        importData.populateData();
 
     }
 
