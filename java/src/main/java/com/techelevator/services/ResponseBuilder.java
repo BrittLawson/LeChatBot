@@ -6,10 +6,7 @@ import com.techelevator.model.ResponseLink;
 import com.techelevator.model.ResponseObject;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Service
@@ -22,12 +19,12 @@ public class ResponseBuilder {
     private WordleService wordleService;
 
     private final List<String> prefixes = new ArrayList<>(
-            List.of("Sure, I can help you with: ",
-                    "Yes, let me show you what I know about: ",
-                    "Ok, you want to know about: ",
-                    "I'd love to help you with: ",
-                    "That's a meow-mazing question! Here's what I know on the topic of: ",
-                    "Purrrfect question! Here's some information about: ")
+            List.of("Sure, I can help you with ",
+                    "Yes, let me show you what I know about ",
+                    "Ok, you want to know about ",
+                    "I'd love to help you with ",
+                    "That's a meow-mazing question! Here's what I know on the topic of ",
+                    "Purrrfect question! Here's some information about ")
     );
 
 
@@ -86,7 +83,7 @@ public class ResponseBuilder {
 
     public ResponseObject getTodaysWordleSolution(){
         String wordleSolution = wordleService.getTodaysWordleSolution();
-        String message = "Did you do today's Wordle yet? I think the word starts with " + wordleSolution.charAt(0);
+        String message = "Did you do today's Wordle yet? I think the word starts with \"" + wordleSolution.charAt(0) + "\"";
         return buildResponseWithMessage(message);
     }
 
@@ -96,7 +93,11 @@ public class ResponseBuilder {
 
         ResponseObject ro = new ResponseObject();
 
-        if(hitListData.getNumUniqueCategories() > 0) {
+        if(hitListData.getNumUniqueTopics() > 14){
+
+            ro = buildResponseWithMessage("Whoa! Too many results found. Could you paws for a second and enter something more specific?");
+
+        } else if( ! hitListData.isEmpty() ) {
 
             String topCategory = hitListData.getCategoriesList().get(0);
 
@@ -108,9 +109,14 @@ public class ResponseBuilder {
                 return getMotivationalQuote();
             }
 
+            String messageSuffix = topCategory;
+            if(hitListData.getNumUniqueTopics()==1){
+                messageSuffix = hitListData.getTopicsList().get(0);
+            }
+
             Collections.shuffle(prefixes);
             String messagePrefix = prefixes.get(0);
-            ro.setMessage(messagePrefix + topCategory);
+            ro.setMessage(messagePrefix + messageSuffix);
 
             List<ResponseLink> responseLinks = new ArrayList<>();
 
@@ -138,13 +144,34 @@ public class ResponseBuilder {
 
         String category = hit.getCategory();
 
-        if(category.equals("curriculum")){
+        if(!category.equals("pathway")){
+            responseLink = new ResponseLink();
+            responseLink.setMessage("This topic was covered in " + hit.getModule() + ". Here's a link for " + hit.getTopic() + "." ) ;
+            responseLink.setUrl(hit.getExternalUrl());
+        } else {
             responseLink = new ResponseLink();
             responseLink.setMessage("Here's a link for " + hit.getTopic() + ".");
-            responseLink.setUrl(hit.getExternalUrl());
+            responseLink.setFrontendRoutingParam(getRoutingParam(hit.getTopic()));
         }
 
         return responseLink;
+    }
+
+    private String getRoutingParam(String topic){
+
+        Map<String, String> topicToRoutingKeywordsMap = new HashMap<>();
+
+        topicToRoutingKeywordsMap.put("employer follow-up", "EmployerFollowUp");
+        topicToRoutingKeywordsMap.put("interview fashion", "InterviewFashion");
+        topicToRoutingKeywordsMap.put("interview preparation", "InterviewPrep");
+        topicToRoutingKeywordsMap.put("sample STAR interview question", "StarQuestions");
+
+        if(topicToRoutingKeywordsMap.containsKey(topic)){
+            return topicToRoutingKeywordsMap.get(topic);
+        }
+
+        else throw new IllegalArgumentException("Bad! Topic param must be one of the meow-gic ones in our map.");
+
     }
 
 
