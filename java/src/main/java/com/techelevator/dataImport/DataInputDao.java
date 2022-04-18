@@ -4,17 +4,16 @@ import java.util.List;
 
 public interface DataInputDao {
 
-    void updateBasicData();
+    void clearData();
+    void populateData();
 
-    void updateTopicData();
+    int populateCategory(String category);
 
-    void populateCategories(List<String> categories);
+    int populateModule(String module);
 
-    void populateModules(List<String> modules);
+    int populateLesson(String lesson);
 
-    void populateLessons(List<String> lessons);
-
-    void populateExternalLinks(List<String> external_links);
+    int populateExternalLink(String external_link);
 
     int populateTopic(String topic, int category, int module, int lesson, int externalLink);
 

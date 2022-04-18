@@ -37,43 +37,14 @@ public class JdbcDataInputDao implements DataInputDao {
     private List<String> keywords = new ArrayList<>();
 
     @Override
-    public void updateBasicData() {
-        try(Scanner scanner = new Scanner(inputFile)){
-            int lineCount = 0;
-            while(scanner.hasNextLine()){
-                lineCount++;
-                String line = scanner.nextLine();
-                if(lineCount == 1) continue;
-                if(line.equals("")) continue;
-
-                String[] data = line.split(DELIMITER_REGEX);
-
-                String category = data[3];
-                String module = "Module " + data[4].substring(1,2);
-                String lesson = "Lesson " + data[4].substring(3);
-                String external_link = data[5];
-
-                if (!categories.contains(category) && category != null) categories.add(category);
-                if (!modules.contains(module) && !module.equals("")) modules.add(module);
-                if (!lessons.contains(lesson) && !lesson.equals("")) lessons.add(lesson);
-                if (!external_links.contains(external_link) && !external_link.equals("")) external_links.add(external_link);
-
-            }
-            //populate category, module, and lesson data
-            populateCategories(categories);
-            populateModules(modules);
-            populateLessons(lessons);
-            populateExternalLinks(external_links);
-
-        } catch (IOException e){
-            System.out.println("Error reading from file " + inputFile.getPath());
-            System.out.println(e.getMessage());
-        }
+    public void clearData() {
+        String sql = "TRUNCATE TABLE category, modules, lesson, external_link, topic, keyword, topic_to_keyword;";
+        jdbcTemplate.update(sql);
     }
 
-    @Override
-    public void updateTopicData() {
 
+    @Override
+    public void populateData() {
         try(Scanner scanner = new Scanner(inputFile)){
             int lineCount = 0;
             while(scanner.hasNextLine()){
@@ -91,33 +62,53 @@ public class JdbcDataInputDao implements DataInputDao {
                 String lesson = "Lesson " + data[4].substring(3);
                 String external_link = data[5];
 
+
                 int categoryId = 0;
                 int moduleId = 0;
                 int lessonId = 0;
+                int topicId = 0;
                 int externalLinkId = 0;
 
-                if (!topics.contains(category) && topic != null) topics.add(topic);
-                if (!module.equals("")) categoryId = getCategoryId(category);
-                if (!module.equals("")) moduleId = getModuleId(module);
-                if (!lesson.equals("")) lessonId = getLessonId(lesson);
-                if (!external_link.equals("")) externalLinkId= getExternalLinkId(external_link);
+                if (!categories.contains(category) && !category.equals("")) {
+                    categories.add(category);
+                    categoryId = populateCategory(category);
+                } else categoryId = getCategoryId(category);
 
-                int topicId = populateTopic(topic, categoryId, moduleId, lessonId, externalLinkId);
+                if (!modules.contains(module) && !module.equals("")) {
+                    modules.add(module);
+                    moduleId = populateModule(module);
+                } else moduleId = getModuleId(module);
 
-                String[] keywordData = keywordString.split(DELIMITER_KEYWORD_REGEX);
+                if (!lessons.contains(lesson) && !lesson.equals("")) {
+                    lessons.add(lesson);
+                    lessonId = populateLesson(lesson);
+                } else lessonId = getLessonId(lesson);
 
-                for(String keyword:keywordData){
-                    keyword = keyword.trim();
-                    int keywordId = 0;
-                    if (!keywords.contains(keyword) && keyword != null) {
-                        keywords.add(keyword);
-                        keywordId = populateKeyword(keyword);
-                    } else{
-                        keywordId = getKeywordId(keyword);
-                    }
-                    populateTopicToKeyword(topicId, keywordId);
-                }
+                if (!external_links.contains(external_link) && !external_link.equals("")) {
+                    external_links.add(external_link);
+                    externalLinkId = populateExternalLink(external_link);
+                } else externalLinkId = getExternalLinkId(external_link);
+
+
+            if (!topics.contains(topic) && topic != null) {
+                topics.add(topic);
+                topicId = populateTopic(topic, categoryId, moduleId, lessonId, externalLinkId);
             }
+
+            String[] keywordData = keywordString.split(DELIMITER_KEYWORD_REGEX);
+
+            for(String keyword:keywordData){
+                keyword = keyword.trim();
+                int keywordId = 0;
+                if (!keywords.contains(keyword) && keyword != null) {
+                    keywords.add(keyword);
+                    keywordId = populateKeyword(keyword);
+                } else{
+                    keywordId = getKeywordId(keyword);
+                }
+                populateTopicToKeyword(topicId, keywordId);
+            }
+        }
 
         } catch (IOException e){
             System.out.println("Error reading from file " + inputFile.getPath());
@@ -126,35 +117,29 @@ public class JdbcDataInputDao implements DataInputDao {
     }
 
     @Override
-    public void populateCategories(List<String> categories) {
-        for(String category:categories){
-            String sql = "INSERT INTO category (category) VALUES (?);";
-            jdbcTemplate.update(sql, category);
+    public int populateCategory(String category) {
+            String sql = "INSERT INTO category (category) VALUES (?) RETURNING category_id;";
+            return jdbcTemplate.queryForObject(sql, int.class, category);
         }
+
+    @Override
+    public int populateModule(String module) {
+            String sql = "INSERT INTO modules (module_name) VALUES (?) RETURNING module_id;";
+            return jdbcTemplate.queryForObject(sql, int.class, module);
     }
 
     @Override
-    public void populateModules(List<String> modules) {
-        for(String module:modules){
-            String sql = "INSERT INTO modules (module_name) VALUES (?);";
-            jdbcTemplate.update(sql, module);
-        }
+    public int populateLesson(String lesson) {
+            String sql = "INSERT INTO lesson (lesson_name) VALUES (?) RETURNING lesson_id;";
+            return jdbcTemplate.queryForObject(sql, int.class, lesson);
     }
 
     @Override
-    public void populateLessons(List<String> lessons) {
-        for(String lesson:lessons){
-            String sql = "INSERT INTO lesson (lesson_name) VALUES (?);";
-            jdbcTemplate.update(sql, lesson);
-        }
-    }
+    public int populateExternalLink(String external_link) {
 
-    @Override
-    public void populateExternalLinks(List<String> external_links) {
-        for(String link: external_links){
-            String sql = "INSERT INTO external_link (external_link_url) VALUES (?);";
-            jdbcTemplate.update(sql, link);
-        }
+            String sql = "INSERT INTO external_link (external_link_url) VALUES (?) RETURNING external_link_id;";
+            return jdbcTemplate.queryForObject(sql, int.class, external_link);
+
     }
 
     @Override
@@ -178,31 +163,31 @@ public class JdbcDataInputDao implements DataInputDao {
 
     @Override
     public int getCategoryId(String category) {
-        String sql = "SELECT category_id FROM category WHERE category = ?;";
+        String sql = "SELECT category_id FROM category WHERE category = ?";
         return jdbcTemplate.queryForObject(sql, int.class, category);
     }
 
     @Override
     public int getModuleId(String module) {
-        String sql = "SELECT module_id FROM modules WHERE module_name = ?;";
+        String sql = "SELECT module_id FROM modules WHERE module_name = ?";
         return jdbcTemplate.queryForObject(sql, int.class, module);
     }
 
     @Override
     public int getLessonId(String lesson) {
-        String sql = "SELECT lesson_id FROM lesson WHERE lesson_name = ?;";
+        String sql = "SELECT lesson_id FROM lesson WHERE lesson_name = ?";
         return jdbcTemplate.queryForObject(sql, int.class, lesson);
     }
 
     @Override
     public int getTopicId(String topic) {
-        String sql = "SELECT topic_id FROM topic WHERE topic = ?;";
+        String sql = "SELECT topic_id FROM topic WHERE topic = ?";
         return jdbcTemplate.queryForObject(sql, int.class, topic);
     }
 
     @Override
     public int getExternalLinkId(String link) {
-        String sql = "SELECT external_link_id FROM external_link WHERE external_link_url = ?;";
+        String sql = "SELECT external_link_id FROM external_link WHERE external_link_url = ?";
         return jdbcTemplate.queryForObject(sql, int.class, link);
     }
 

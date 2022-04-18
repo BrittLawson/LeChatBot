@@ -57,6 +57,9 @@ public class HitListDataBuilder {
 
         Collections.sort(sortedCategoriesList, (o1, o2) -> {
 
+            if(o1.equals("pathway")) return -1;
+            if(o2.equals("pathway")) return 1;
+
             if(!categoryFrequency.containsKey(o2)) return -1;
             if(!categoryFrequency.containsKey(o1)) return 1;
 
@@ -101,6 +104,8 @@ public class HitListDataBuilder {
             if(o1.getCategory().equals(o2.getCategory())){
                 return topicFrequency.get(o2.getTopic()) - topicFrequency.get(o1.getTopic()) ;
             } else {
+                if(o1.getCategory().equals("pathway")) return -1;
+                if(o2.getCategory().equals("pathway")) return 1;
                 return categoryFrequency.get(o2.getCategory()) - categoryFrequency.get(o2.getCategory());
             }
         });
