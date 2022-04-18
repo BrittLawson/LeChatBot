@@ -69,25 +69,25 @@ public class JdbcDataInputDao implements DataInputDao {
                 int topicId = 0;
                 int externalLinkId = 0;
 
-
-
                 if (!categories.contains(category) && !category.equals("")) {
                     categories.add(category);
                     categoryId = populateCategory(category);
                 } else categoryId = getCategoryId(category);
+
                 if (!modules.contains(module) && !module.equals("")) {
                     modules.add(module);
                     moduleId = populateModule(module);
                 } else moduleId = getModuleId(module);
+
                 if (!lessons.contains(lesson) && !lesson.equals("")) {
                     lessons.add(lesson);
                     lessonId = populateLesson(lesson);
                 } else lessonId = getLessonId(lesson);
+
                 if (!external_links.contains(external_link) && !external_link.equals("")) {
                     external_links.add(external_link);
                     externalLinkId = populateExternalLink(external_link);
                 } else externalLinkId = getExternalLinkId(external_link);
-
 
 
             if (!topics.contains(topic) && topic != null) {
