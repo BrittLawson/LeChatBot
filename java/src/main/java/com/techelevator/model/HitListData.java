@@ -16,6 +16,7 @@ public class HitListData {
     private List<Hit> sortedHitList;
     private List<String> categoriesList;
     private List<String> topicsList;
+    private String query;
 
     // == constructor ==
 
@@ -88,6 +89,15 @@ public class HitListData {
 
     public HitListData setTopicsList(List<String> topicsList) {
         this.topicsList = topicsList;
+        return this;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public HitListData setQuery(String query) {
+        this.query = query;
         return this;
     }
 }

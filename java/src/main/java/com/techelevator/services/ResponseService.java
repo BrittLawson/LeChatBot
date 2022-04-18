@@ -4,7 +4,6 @@ import com.techelevator.dao.HitDao;
 import com.techelevator.model.Hit;
 import com.techelevator.model.HitListData;
 import com.techelevator.model.ResponseObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.security.Principal;
@@ -62,7 +61,7 @@ public class ResponseService {
 
     private HitListData getHitListDataForQuery(String query){
         List<Hit> hitList = getHitListForQuery(query);
-        return hitListDataBuilder.getHitListDataFromListOfHits(hitList);
+        return hitListDataBuilder.getHitListDataFromQueryAndListOfHits(query, hitList);
     }
 
     private List<Hit> getHitListForQuery(String query){

@@ -22,7 +22,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 --EKS inserted code below:
 
-DROP TABLE IF EXISTS category, modules, lesson, external_link, topic, keyword, topic_to_keyword, calendar, open_positions;
+DROP TABLE IF EXISTS category, modules, lesson, external_link, topic, keyword, topic_to_keyword;
 DROP SEQUENCE IF EXISTS seq_category_id, seq_module_id, seq_lesson_id, seq_external_link_id, seq_keyword_id, seq_topic_id, seq_topic_to_keyword_id;
 
 CREATE SEQUENCE seq_category_id
@@ -124,14 +124,6 @@ CREATE TABLE topic_to_keyword (
 	CONSTRAINT PK_topic_to_keyword PRIMARY KEY (id),
 	CONSTRAINT FK_to_topic FOREIGN KEY (topic_id) REFERENCES topic (topic_id),
 	CONSTRAINT FK_to_keyword FOREIGN KEY (keyword_id) REFERENCES keyword (keyword_id)
-);
-
-CREATE TABLE calendar (
-	event_id int NOT NULL,
-	event_description varchar(500) NOT NULL UNIQUE,
-	event_date date,
-	event_time time,
-	CONSTRAINT PK_calendar PRIMARY KEY (event_id)
 );
 
 COMMIT TRANSACTION;
