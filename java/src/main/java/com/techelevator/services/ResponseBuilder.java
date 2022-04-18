@@ -95,7 +95,8 @@ public class ResponseBuilder {
 
         if(hitListData.getNumUniqueTopics() > 14){
 
-            ro = buildResponseWithMessage("Whoa! Too many results found. Could you paws for a second and enter something more specific?");
+            ro = buildResponseWithMessage("Whoa! Too many results found. " +
+                    "Could you paws for a second and enter something more specific?");
 
         } else if( ! hitListData.isEmpty() ) {
 
