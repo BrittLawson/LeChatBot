@@ -2,7 +2,7 @@
   <div class="content-container">
     <div class="bot-container">
       
-      <bot-speech-bubble v-if="!invalidCredentials && !this.$route.query.registration" :speechText="'Meow! I\'m Oliver, your friendly Tech Elevator chat bot! Before we do anything else, let\'s get you logged in!'" />
+      <bot-speech-bubble v-if="!invalidCredentials && !this.$route.query.registration" :speechText="getLoginIntroText" />
       <bot-speech-bubble v-if="invalidCredentials" :speechText="'Meow! Invalid username and password!'" /> 
       <bot-speech-bubble v-if="this.$route.query.registration" :speechText="'Thank you for registering, meow! Please sign in!'" />  
       
@@ -59,12 +59,10 @@ export default {
       invalidCredentials: false
     };
   },
-
-  computed: {
-    loginText() {
-      if (this.$route.query.registration) {
-        return "sdfsf";
-      } else return 'Meow! I\'m Oliver, your friendly Tech Elevator chat bot! Before we do anything else, let\'s get you logged in!'
+    computed: {
+    getLoginIntroText() {
+      let catName = this.$store.state.currentCat.name;
+      return "Meow! I'm " + catName + ", your friendly Tech Elevator chat bot! Before we do anything else, let's get you logged in!";
     }
   },
 
