@@ -93,19 +93,16 @@ public class ResponseBuilder {
 
         ResponseObject ro = new ResponseObject();
 
-        if(hitListData.getNumUniqueTopics() > 14){
 
-            ro = buildResponseWithMessage("Whoa! Too many results found. Could you paws for a second and enter something more specific?");
-
-        } else if( ! hitListData.isEmpty() ) {
+            if( ! hitListData.isEmpty() ) {
 
             String topCategory = hitListData.getCategoriesList().get(0);
 
-            if(topCategory.equals("joke")){
+            if(hitListData.getCategoriesList().contains("joke")){
                 return getJoke();
             }
 
-            if(topCategory.equals("quote")){
+            if(hitListData.getCategoriesList().contains("quote")){
                 return getMotivationalQuote();
             }
 
@@ -146,7 +143,10 @@ public class ResponseBuilder {
 
         if(!category.equals("pathway")){
             responseLink = new ResponseLink();
-            responseLink.setMessage("This topic was covered in " + hit.getModule() + ". Here's a link for " + hit.getTopic() + "." ) ;
+            if(hit.getModule().equals("Module 0, Lesson 0")){
+                responseLink.setMessage("Here's a link about " + hit.getTopic() + ".") ;
+            }
+            else responseLink.setMessage("Here's a link about " + hit.getTopic() + ". " + "This topic was covered in " + hit.getModule() + ".") ;
             responseLink.setUrl(hit.getExternalUrl());
         } else {
             responseLink = new ResponseLink();

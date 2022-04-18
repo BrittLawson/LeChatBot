@@ -10,34 +10,34 @@ topic_id,topic,keywords,category,Module/section,External Link
 9,cover letter,cover | cover letter | write | cv | curriculum vitae | apply | job | interview | pathway,interview,M0L0,https://www.themuse.com/advice/how-to-write-a-cover-letter-31-tips-you-need-to-know
 10,resume,resume | write | interview | apply | job | experience | resume revision | skills | education | professional experience | summary | action verbs | rubric | pathway,interview,M0L0,https://www.linkedin.com/pulse/game-thrones-guide-creating-killer-resume-emer-mccann-she-her-/
 11,linkedin,social media | linked-in | linked in | profile | connections | networking | follow-up | connect | connect with | message | in mail | linkedin premium | pathway,interview,M0L0,https://www.forbes.com/sites/williamarruda/2017/01/15/linkedin-101-how-to-craft-a-stellar-profile/?sh=74fd86415379
-,elevator pitch,elevator pitch | video | elevator | pitch | speech | thirty seconds | employer showcase | strengths | goal | personality | clifton strengths,elevator pitch,M0L0,https://www.thebalancecareers.com/elevator-speech-examples-and-writing-tips-2061976
-,clifton strengths,clifton strengths | clifton | strengths | talents | leadership | executing | influencing | relationship building | strategic thinking | achiever | activator | adaptability | analytical | arranger | belief | command | communication | competition | connectedness | consistency | context | deliberative | developer | discipline | empathy | focus | futuristic | harmony | ideation | includer | individualization | input | intellection | learner | maximizer | positivity | relator | responsibility | restorative | self-assurance | self assurance | significance | strategic | woo,pathway,M0L0,https://www.uschamber.com/co/grow/thrive/cliftonstrengths-assessment
-12,terminal,terminal | cli,terminal,M1L1,https://tutorial.djangogirls.org/en/intro_to_command_line/
-13,java,java,java,M1L3,https://www.geeksforgeeks.org/introduction-to-java/
-14,intellij,intellij,tools,M1L1,https://www.youtube.com/watch?v=GSKERVTMWqs
-15,postgresql,postgres | data | database,tools,M2L12,https://www.postgresql.org/docs/current/index.html
-16,postman,postman,tools,M2L12,https://learning.postman.com/docs/getting-started/introduction/
-17,npm,npm | node.js | package manager,tools,M0L0,https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/
-18,git,git | version control | repository | repo | merge | merge conflict | branch | trunk | github,tools,M1L1,https://git-scm.com/
-19,java primitive variables,variable | variable types | int | integer | long | double float | boolean | char | java,java,M1L2,https://www.google.com/
-20,java logical branching,if | if else | java,java,M1L3,https://www.google.com/
-21,java loops and arrays ,array | loop | while | for loop | do while | java,java,M1L4,https://www.google.com/
-22,java command-line programs,cli | java,java,M1L5,https://www.google.com/
-23,java objects,object | java,java,M1L6,https://www.google.com/
-24,java collections - stacks and queues ,list | stack | queue | collection,java,M1L7,https://www.google.com/
-25,java collections - maps and sets,map | set | collection,java,M1L8,https://www.google.com/
-26,java classes and encapsulation,encapsulation,java,M1L9,https://www.google.com/
-27,java inheritance,inheritance | parent | child,java,M1L11,https://www.google.com/
-28,java polymorphism,polymorphism | polymorphic,java,M1L12,https://www.google.com/
-29,unit testing,test | unit | testing,java,M1L14,https://www.google.com/
-30,java error handling,error | error handling | exception | exception handling | try | catch,java,M1L16,https://www.google.com/
-31,java file input/output,file input | file output | i/o | input/output,java,M1L17,https://www.google.com/
-32,sql,sql,sql,M2L1,https://www.google.com/
-33,sql: ordering and limiting,ordering | limiting | grouping | order | limit | group,sql,M2L2,https://www.google.com/
-34,sql joins,sql join | join | joins,sql,M2L3,https://www.google.com/
-35,sql: inserting and updating ,sql | create | insert | update | delete | creating | deleting | updating | inserting | crud,sql,M2L4,https://www.google.com/
+12,elevator pitch,elevator pitch | video | elevator | pitch | speech | thirty seconds | employer showcase | strengths | goal | personality | clifton strengths,elevator pitch,M0L0,https://www.thebalancecareers.com/elevator-speech-examples-and-writing-tips-2061976
+13,clifton strengths,clifton strengths | clifton | strengths | talents | leadership | executing | influencing | relationship building | strategic thinking | achiever | activator | adaptability | analytical | arranger | belief | command | communication | competition | connectedness | consistency | context | deliberative | developer | discipline | empathy | focus | futuristic | harmony | ideation | includer | individualization | input | intellection | learner | maximizer | positivity | relator | responsibility | restorative | self-assurance | self assurance | significance | strategic | woo,pathway,M0L0,https://www.uschamber.com/co/grow/thrive/cliftonstrengths-assessment
+12,terminal,terminal | cli | command line | interface,terminal,M1L1,https://tutorial.djangogirls.org/en/intro_to_command_line/
+13,java,java | language ,java,M1L3,https://www.geeksforgeeks.org/introduction-to-java/
+14,intellij,intellij | ide | jetbrain | maven ,tools,M1L1,https://www.youtube.com/watch?v=GSKERVTMWqs
+15,postgresql,postgres | data | database | pgadmin | erd,tools,M2L12,https://www.postgresql.org/docs/current/index.html
+16,postman,postman | web api's | api | api's | get | post | put | request | response | delete,tools,M2L12,https://learning.postman.com/docs/getting-started/introduction/
+17,npm,npm | node.js | package manager | package | packages ,tools,M0L0,https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/
+18,git,git | version control | repository | repo | merge | merge conflict | branch | trunk | github | commit | stage | push | pull | clone,tools,M1L1,https://git-scm.com/
+19,java primitive variables,variable | variable types | int | integer | integers | long | double | float | boolean | char | java | byte | short ,java,M1L2,https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+20,java logical branching,if | if else | java | boolean expression | logical operators | true | false | blocks | methods | parameters,java,M1L3,https://www.w3schools.com/java/java_conditions.asp
+21,java loops and arrays ,array | loop | while | for loop | do while | java | initilize | indexes | initializer | condition | iterator,java,M1L4,https://caveofprogramming.com/javatutorial/java-tutorial-3-arrays-methods-loops-and-conditionals.html
+22,java command-line programs,cli | java,java,M1L5,https://www.jdatalab.com/information_system/2017/01/16/java-review-application.html
+23,java objects,object | java | abstraction | in memory data structure ,java,M1L6,https://www.geeksforgeeks.org/classes-objects-java/
+24,java collections - stacks and queues ,list | stack | queue | collection | lifo | push | pop | fifo | offer | poll,java,M1L7,https://introcs.cs.princeton.edu/java/43stack/
+25,java collections - maps and sets,map | set | collection | key-value pair | key | value | hash map | add | remove | foreach,java,M1L8,https://www.javatpoint.com/set-vs-map-in-java
+26,java classes and encapsulation,encapsulation | class | classes | methods | constructors | modifiers,java,M1L9,https://www.geeksforgeeks.org/encapsulation-in-java/
+27,java inheritance,inheritance | parent | child | subclass | superclass ,java,M1L11,https://www.geeksforgeeks.org/inheritance-in-java/
+28,java polymorphism,polymorphism | polymorphic | interfaces,java,M1L12,https://www.geeksforgeeks.org/polymorphism-in-java/
+29,unit testing,test | unit | testing | edge cases | reliable | repeatable | independent | arrange | act | assert,java,M1L14,https://stackify.com/unit-testing-basics-best-practices/
+30,java error handling,error | error handling | exception | exception handling | try | catch,java,M1L16,https://stackify.com/specify-handle-exceptions-java/
+31,java file input/output,file input | file output | i/o | input/output | stream | scanner | reading | writing,java,M1L17,https://www.seas.upenn.edu/~cis1xx/resources/java/fileIO/introToFileIO.html
+32,sql,sql | database | databases | statement | select | where,sql,M2L1,"https://www.techtarget.com/searchdatamanagement/definition/SQL#:~:text=Structured%20Query%20Language%20(SQL)%20is,on%20the%20data%20in%20them."
+33,sql: ordering and limiting,ordering | limiting | grouping | order | limit | group | aggregate | string concatenate,sql,M2L2,http://2015.padjo.org/tutorials/sql-basics/limit-and-order/
+34,sql joins,sql join | join | joins | outer | inner | left | right | left outer | right outer,sql,M2L3,https://www.w3schools.com/sql/sql_join.asp
+35,sql: inserting and updating ,sql | create | insert | update | delete | creating | deleting | updating | inserting | crud | constraint | transactions,sql,M2L4,https://www.pluralsight.com/guides/manipulating-data-using-insert-update-delete-sql-server
 36,sql relational data,sql | data | relation | relational | relationship | relational data | database | design,sql,M2L5,https://www.google.com/
-37,data access object,dao,data,M2L6,https://www.google.com/
+37,data access object,dao | jdbc | jdbc template | dao pattern | dao access object,data,M2L6,https://www.baeldung.com/java-dao-pattern
 38,dao testing,dao | test | testing,data,M2L7,https://www.google.com/
 39,data security,data | security,data,M2L8,https://www.google.com/
 40,consuming restful apis,api | apis | web api | http api | consume api | consume | rest | restful rest api | restful api,apis,M2L11,https://www.google.com/
@@ -58,3 +58,4 @@ topic_id,topic,keywords,category,Module/section,External Link
 55,vue js components,vue | vue component | component | communication | component communication,vue,M3L14,https://www.google.com/
 56,vue js router,vue | vuejs | vue js | vue router | route | router,vue,M3L17,https://www.google.com/
 57,web services,web service | service | microservice | asynchronous,apis,M3L18,https://www.google.com/
+58,curriculum,curriculum,curriculum,M0L0,https://v2-4-techelevator-book.netlify.app/content/guides/setup-personal-computer.html#basic-installation-net-on-windows-10-pc
