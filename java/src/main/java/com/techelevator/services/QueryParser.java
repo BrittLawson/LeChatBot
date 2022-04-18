@@ -18,8 +18,8 @@ public class QueryParser {
     public List<String> getPotentialKeywordsFromQuery(String query){
         List<String> keywordsList = new ArrayList<>();
 
-        // get rid of anything that is not a space or an alpha char
-        query = query.replaceAll("[^A-Za-z0-9 ]", "").toLowerCase();
+        // get rid of anything that is not a space, digit, alpha char or hyphen
+        query = query.replaceAll("[^A-Za-z0-9- ]", "").toLowerCase();
 
         // split query into separate words
         // "This is an example query"->["This", "is", "an" ..]
@@ -47,7 +47,6 @@ public class QueryParser {
 
         // uncomment to include three-word phrases:
 
-        /*
         for (int i = 0; i < wordArray.length - 2; i++) {
 
             // combine current word with next word
@@ -62,7 +61,6 @@ public class QueryParser {
             // add that to our list
             keywordsList.add(combined);
         }
-        */
 
         return keywordsList;
     }
