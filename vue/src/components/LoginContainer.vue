@@ -60,13 +60,7 @@ export default {
     };
   },
 
-  computed: {
-    loginText() {
-      if (this.$route.query.registration) {
-        return "sdfsf";
-      } else return 'Meow! I\'m Oliver, your friendly Tech Elevator chat bot! Before we do anything else, let\'s get you logged in!'
-    }
-  },
+  
 
   methods: {
     login() {
