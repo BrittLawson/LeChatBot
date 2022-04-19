@@ -1,17 +1,15 @@
 <template>
   <div>
-    <chat-bot />
-    <star-questions-info />    
+    <pathway-container />  
   </div>
 </template>
 
 <script>
-import StarQuestionsInfo from '@/components/StarQuestionsInfo.vue';
-import ChatBot from '@/components/ChatBot.vue';
+import PathwayContainer from '../components/PathwayContainer.vue';
 export default {
+  name: "star-questions",
   components: {
-    StarQuestionsInfo,
-    ChatBot
+    PathwayContainer
   }
 }
 </script>

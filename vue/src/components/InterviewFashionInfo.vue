@@ -38,11 +38,29 @@
       <a href="https://www.instagram.com/p/B0Ys1V5hbPM/?utm_source=ig_embed&ig_rid=f86f0329-e8d9-4eb1-8dd7-2427dcf2428c" target="_blank">Queer Eye's Tan France</a> 
       has to say about dressing for interviews?
     </section>  
+    <footer class="button-footer">
+        <button class="pathway-topic-button" v-on:click="pathway()" :disabled="$store.state.nameOfCurrentUser==''">
+        Take me back to the Pathway home page.   
+        </button>
+        <br>
+        <button class="pathway-topic-button" v-on:click="home()" :disabled="$store.state.nameOfCurrentUser==''">
+        Take me back to the main Chatbot home page.
+      </button>
+      </footer>
   </div>
 </template>
 
 <script>
 export default {
+  name: "interview-fashion-info",
+  methods: {
+    pathway () {
+            this.$router.push("/Pathway");
+        },
+    home () {
+      this.$router.push("/")
+    }
+  }
 
 }
 </script>

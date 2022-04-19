@@ -116,8 +116,13 @@ button {
     border: 2px solid #1F2B4A;
     height: 10vh;
     min-width: 150px;
+    max-width: 60vh;
     border-radius: 4px;
     font-size: 2.5vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
 }
 
 .bubble {
