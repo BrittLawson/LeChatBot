@@ -180,7 +180,7 @@ public class ResponseBuilder {
         topicToRoutingKeywordsMap.put("employer follow-up", "EmployerFollowUp");
         topicToRoutingKeywordsMap.put("interview fashion", "InterviewFashion");
         topicToRoutingKeywordsMap.put("interview preparation", "InterviewPrep");
-        topicToRoutingKeywordsMap.put("sample STAR interview question", "StarQuestions");
+        topicToRoutingKeywordsMap.put("sample STAR interview questions", "StarQuestions");
 
         if(topicToRoutingKeywordsMap.containsKey(topic)){
             return topicToRoutingKeywordsMap.get(topic);
