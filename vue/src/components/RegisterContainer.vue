@@ -1,12 +1,10 @@
 <template>
-<div class="registration-container">
-      <bot-speech-bubble v-if="!registrationErrors" :speechText="'Choose a username and password, meow!'" />
-        <form class="form-register" @submit.prevent="register">
-        <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="registrationErrors"
-      ><bot-speech-bubble :speechText="registrationErrorMsg" /></div>
+  <div class="content-container">
+  <div class="bot-container">
+    <bot-speech-bubble v-if="!registrationErrors" :speechText="'Choose a username and password, meow!'" />
+    <bot-speech-bubble v-if="registrationErrors" :speechText="registrationErrorMsg" /> 
+    <form class="form-register" @submit.prevent="register">
+        
 
       <div class="input-container">
          <input
@@ -17,35 +15,35 @@
         v-model="user.username"
         required
         autofocus
-      />
-      <br>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <br>
-      <input
-        type="password"
-        id="confirmPassword"
-        class="form-control"
-        placeholder="Confirm Password"
-        v-model="user.confirmPassword"
-        required
-      />
-      <br>
+        />
+        
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Password"
+          v-model="user.password"
+          required
+        />
+        
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          placeholder="Confirm Password"
+          v-model="user.confirmPassword"
+          required
+        />
       
       </div>
+
       <div class="button-container">
         <button class="register-button" type="submit">Sign up</button>
         <br>
-        <button class="gotologin-button" v-on:click="goToLogin()">Actually, I already have an account!</button>
+        <button class="register-button" v-on:click="goToLogin()">Actually, I already have an account!</button>
       </div>
-      
     </form>
+    </div>
   </div>
   
 
@@ -111,20 +109,12 @@ export default {
 
 <style>
 
-.registration-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
 .input-container {
     display: flex;
 }
 
 .button-container {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,29 +135,10 @@ export default {
     margin: 15px;
 }
 
-button {
-    height: 50px;
-    min-width: 150px;
-    margin-top: 15px;
-    margin-left: 25px;
-    background-color: white;
-    color: #1F2B4A;
-    border: 2px solid #1F2B4A;
-    border-radius: 4px;
+.register-button {
+  margin: 10px;
 }
 
-button:hover {
-    background-color: #04ACF4;
-    color: white;
-}
 
-.gotologin-button {
-    height: 50px;
 
-    margin-left: 25px;
-    background-color: white;
-    color: #1F2B4A;
-    border: 2px solid #1F2B4A;
-    border-radius: 4px;
-}
 </style>

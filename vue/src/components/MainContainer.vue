@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style style="scoped">
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
@@ -52,26 +52,39 @@ export default {
     height: 95vh;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 100px 3fr;
+    grid-template-rows: 15vh 3fr;
     grid-template-areas: 
         "icon header"
         "sidebar content";
+    
 }
+
+.content-container {
+        height: 100%;
+    }
+
+.bot-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
 .icon {
+    height: 100%;
     grid-area: icon;
     background-color: #04ACF4;
-    display: flex;
-    justify-content: center
+    text-align: center
 }
 
-img {
+.icon > img {
     max-height: 100%;
     max-width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .header {
+    height: 100%;
     grid-area: header;
     background-color: #04ACF4;
     display: flex;
@@ -84,14 +97,53 @@ img {
     padding-left: 10px;
     background-color: #F5F7F3;
     font-family: 'Roboto', sans-serif;
-    color: #1F2B4A
+    color: #1F2B4A;
+    border: 1px solid #1F2B4A;
 }
 
-h1 {
+.header > h1 {
     color: #F5F7F3;
     font-family: 'Playfair Display', serif;
-    font-size: 4em;
+    font-size: 12vh;
     padding-left: 5%;
+    height: 100%;
+    width: 100%;
 }
+
+button {
+    background-color: white;
+    color: #1F2B4A;
+    border: 2px solid #1F2B4A;
+    height: 10vh;
+    min-width: 150px;
+    border-radius: 4px;
+    font-size: 2.5vh;
+}
+
+.bubble {
+    font-size: 2.5vh;
+    color: #F5F7F3;
+    border-radius: 8px;
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+button:hover {
+    background-color: #04ACF4;
+    color: white;
+}
+
+button:disabled,
+button[disabled] {
+    background-color: #F5F7F3;
+    color: #1F2B4A;
+}
+
 
 </style>
