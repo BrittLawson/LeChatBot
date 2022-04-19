@@ -119,7 +119,7 @@ public class ResponseBuilder {
 
             if(hitListData.getQuery().contains("help")){
                 messagePrefix = "Sure, I can help mew! ";
-                messageSuffix = "Here are some common topics.";
+                messageSuffix = "";
             }
 
             ro.setMessage(messagePrefix + messageSuffix);
