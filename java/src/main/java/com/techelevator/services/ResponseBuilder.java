@@ -36,6 +36,10 @@ public class ResponseBuilder {
         this.wordleService = wordleService;
     }
 
+    public ResponseBuilder(){
+        this(new QuoteService(), new JokeService(), new WordleService());
+    }
+
     // == methods ==
 
         // public
@@ -89,7 +93,11 @@ public class ResponseBuilder {
 
         // private
 
-    private ResponseObject generateResponse(HitListData hitListData){
+    public ResponseObject generateResponse(HitListData hitListData){
+
+        if(hitListData == null){
+            throw new IllegalArgumentException();
+        }
 
         ResponseObject ro = new ResponseObject();
 
@@ -106,16 +114,24 @@ public class ResponseBuilder {
                 return getMotivationalQuote();
             }
 
+            Collections.shuffle(prefixes);
+            String messagePrefix = prefixes.get(0);
             String messageSuffix = topCategory;
+
+
+            List<ResponseLink> responseLinks = new ArrayList<>();
+
             if(hitListData.getNumUniqueTopics()==1){
                 messageSuffix = hitListData.getTopicsList().get(0);
             }
 
-            Collections.shuffle(prefixes);
-            String messagePrefix = prefixes.get(0);
+            if(hitListData.getQuery().contains("help")){
+                messagePrefix = "Sure, I can help mew! ";
+                messageSuffix = "";
+            }
+
             ro.setMessage(messagePrefix + messageSuffix);
 
-            List<ResponseLink> responseLinks = new ArrayList<>();
 
             for(Hit hit : hitListData.getSortedHitList()){
 
@@ -135,7 +151,7 @@ public class ResponseBuilder {
         return ro;
     }
 
-    private ResponseLink getResponseLinkFromHit(Hit hit){
+    public ResponseLink getResponseLinkFromHit(Hit hit){
 
         ResponseLink responseLink = null;
 
