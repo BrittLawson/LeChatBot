@@ -1,12 +1,16 @@
 <template>
   <div class="sidebar">
-      <query-button :button-text="'I need information about something in Pathway.'" />
-      <query-button :button-text="'I need information about the curriculum.'" />
-      <query-button :button-text="'What\'s on the calendar today?'" />
+      <button class="query-button" v-on:click="pathway()" :disabled="$store.state.nameOfCurrentUser==''">
+        I need information about something in Pathway.  
+      </button> 
+      <query-button :button-text="'Tell me a joke!'" />
+      <button class="query-button" v-on:click="events()">
+        Tell me about some upcoming local events.   
+      </button>
       <query-button :button-text="'Where can I learn more about Java?'" />
       <query-button :button-text="'Where can I learn more about Vue.js?'" />
       <button class="query-button" v-on:click="logout()" :disabled="$store.state.nameOfCurrentUser==''">
-        <p>I'd like to log out, please!</p>    
+        I'd like to log out, please! 
       </button>    
   </div>
 </template>
@@ -23,6 +27,13 @@ export default {
             this.$store.commit("SET_USER_NAME", '')
             this.$store.commit("LOGOUT");
             this.$router.push("/login");
+        },
+        pathway () {
+            this.$router.push("/Pathway");
+        },
+        events () {
+            let eventUrl = "https://www.meetup.com/find/?keywords=technology&location=us--pa--Pittsburgh&source=EVENTS";
+            window.open(eventUrl, "_blank")
         }
         
     }

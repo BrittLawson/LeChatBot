@@ -16,16 +16,23 @@ export default {
       let returnedResults = [];
       if (this.$store.state.currentResponseObject.links != undefined) {
         if (this.$store.state.currentResponseObject.links.length != 0) {
-          if (this.$store.state.currentResponseObject.links.length < 6) {
+          if (this.$store.state.currentResponseObject.links.length < this.maxNumber) {
             return this.$store.state.currentResponseObject.links;
           } else {
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < this.maxNumber; i++) {
               returnedResults.push(this.$store.state.currentResponseObject.links[i])
             }
           }
         }
       }  
       return returnedResults;
+    },
+    maxNumber() {
+      if (this.$route.name==="home" || this.$route.name==="login" || this.$route.name==="register") {
+        return 4;
+      } else {
+        return 2;
+      }
     }
   }
 }

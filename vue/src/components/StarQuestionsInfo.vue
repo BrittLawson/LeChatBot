@@ -184,11 +184,29 @@
         </li>
       </ul>
     </section>
+    <footer class="button-footer">
+        <button class="pathway-topic-button" v-on:click="pathway()" :disabled="$store.state.nameOfCurrentUser==''">
+        Take me back to the Pathway home page.  
+        </button>
+        <br>
+        <button class="pathway-topic-button" v-on:click="home()" :disabled="$store.state.nameOfCurrentUser==''">
+        Take me back to the main Chatbot home page.  
+      </button>
+      </footer>
   </div>
 </template>
 
 <script>
 export default {
+  name: "star-questions-info",
+  methods: {
+    pathway () {
+            this.$router.push("/Pathway");
+        },
+    home () {
+      this.$router.push("/")
+    }
+  }
 
 }
 </script>

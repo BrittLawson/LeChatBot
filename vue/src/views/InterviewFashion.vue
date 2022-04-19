@@ -1,17 +1,15 @@
 <template>
   <div>
-    <chat-bot />  
-    <interview-fashion-info />
+    <pathway-container />
   </div>
 </template>
 
 <script>
-import InterviewFashionInfo from '@/components/InterviewFashionInfo.vue';
-import ChatBot from '@/components/ChatBot.vue';
+import PathwayContainer from '../components/PathwayContainer.vue';
 export default {
+  name: "interview-fashion",
   components: {
-    InterviewFashionInfo,
-    ChatBot
+    PathwayContainer
   }
 }
 </script>
