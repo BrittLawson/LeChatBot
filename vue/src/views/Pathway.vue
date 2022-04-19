@@ -1,27 +1,49 @@
 <template>
-  <div>
-    <h1>Check out some helpful Pathway information below!</h1>
-    <router-link :to="{ name: 'EmployerFollowUp' }">
-      <h3>Learn about how best to follow up with an employer.</h3>
-    </router-link>
-    <router-link :to="{ name: 'InterviewFashion' }">
-      <h3>Dress to impress for your interviews.</h3>
-    </router-link>
-    <router-link :to="{ name: 'InterviewPrep' }">
-      <h3>Prepare for that interview you're so excited about.</h3>
-    </router-link>  
-    <router-link :to="{ name: 'StarQuestions' }">
-      <h3>Learn how to ace those STAR questions.</h3>
-    </router-link>  
-  </div>
+<div class="pathway-container">
+  <header class="pathway-header">
+    <h1>Welcome to Pathway!</h1>
+  </header>
+  <pathway-info id="pathway"/>
+  <chat-bot-container id="chatbot"/>
+</div>
 </template>
 
 <script>
-export default {
+import ChatBotContainer from '@/components/ChatBotContainer.vue';
+import PathwayInfo from '@/components/PathwayInfo.vue';
 
+export default {
+  components: {
+    ChatBotContainer,
+    PathwayInfo
+  }
 }
 </script>
+  
 
-<style>
+<style style="scoped">
+
+  #pathway {
+    grid-area: pathway;
+    margin: 1%;
+  }
+  #chatbot {
+    grid-area: chatbot;
+    margin: 1%;
+  }
+  .pathway-header {
+    grid-area: pathway-header;
+    background-color: #04ACF4;
+    align-items: center;
+  }
+  .pathway-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:  "pathway-header pathway-header"
+                          "pathway chatbot";
+                          
+  }
+  
 
 </style>
