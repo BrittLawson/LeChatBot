@@ -36,6 +36,10 @@ public class ResponseBuilder {
         this.wordleService = wordleService;
     }
 
+    public ResponseBuilder(){
+        this(new QuoteService(), new JokeService(), new WordleService());
+    }
+
     // == methods ==
 
         // public
@@ -89,7 +93,11 @@ public class ResponseBuilder {
 
         // private
 
-    private ResponseObject generateResponse(HitListData hitListData){
+    public ResponseObject generateResponse(HitListData hitListData){
+
+        if(hitListData == null){
+            throw new IllegalArgumentException();
+        }
 
         ResponseObject ro = new ResponseObject();
 
@@ -135,7 +143,7 @@ public class ResponseBuilder {
         return ro;
     }
 
-    private ResponseLink getResponseLinkFromHit(Hit hit){
+    public ResponseLink getResponseLinkFromHit(Hit hit){
 
         ResponseLink responseLink = null;
 

@@ -33,7 +33,7 @@ public class HitListDataBuilder {
         return hitListData;
     }
 
-    private void analyzeHitList(List<Hit> hitList){
+    public void analyzeHitList(List<Hit> hitList){
 
         populateFrequencyTables(hitList);
         populateSortedHitList(hitList);
@@ -50,7 +50,12 @@ public class HitListDataBuilder {
 
     }
 
-    private void populateCategories(){
+    public void populateCategories(){
+
+        if(categoryFrequency == null){
+            throw new IllegalStateException("categoryFrequencyMap must be instantiated before calling this method.");
+        }
+
         for(String category : categoryFrequency.keySet()){
             sortedCategoriesList.add(category);
         }
@@ -68,7 +73,12 @@ public class HitListDataBuilder {
 
     }
 
-    private void populateTopics(){
+    public void populateTopics(){
+
+        if(topicFrequency == null){
+            throw new IllegalStateException("topicFrequency map must be instantiated before calling this method.");
+        }
+
         for(String topic : topicFrequency.keySet()){
             sortedTopicsList.add(topic);
         }
@@ -83,7 +93,7 @@ public class HitListDataBuilder {
 
     }
 
-    private void populateFrequencyTables(List<Hit> hitList){
+    public void populateFrequencyTables(List<Hit> hitList){
 
         for(Hit hit : hitList){
 
@@ -97,7 +107,12 @@ public class HitListDataBuilder {
 
     }
 
-    private void populateSortedHitList(List<Hit> hitList){
+    public void populateSortedHitList(List<Hit> hitList){
+
+        if(categoryFrequency == null || topicFrequency == null){
+            throw new IllegalStateException();
+        }
+
         sortedHitList = new ArrayList<>(new HashSet<>(hitList));
 
         Collections.sort(sortedHitList, (o1, o2) -> {
@@ -106,19 +121,19 @@ public class HitListDataBuilder {
             } else {
                 if(o1.getCategory().equals("pathway")) return -1;
                 if(o2.getCategory().equals("pathway")) return 1;
-                return categoryFrequency.get(o2.getCategory()) - categoryFrequency.get(o2.getCategory());
+                return categoryFrequency.get(o2.getCategory()) - categoryFrequency.get(o1.getCategory());
             }
         });
     }
 
-    private void addOrIncrementTopic(String topic){
+    public void addOrIncrementTopic(String topic){
         Integer i = topicFrequency.putIfAbsent(topic, 1);
         if(i != null){
             topicFrequency.put(topic, i+1);
         }
     }
 
-    private void addOrIncrementCategory(String category){
+    public void addOrIncrementCategory(String category){
         Integer i = categoryFrequency.putIfAbsent(category, 1);
         if(i != null){
             categoryFrequency.put(category, i+1);
@@ -133,4 +148,26 @@ public class HitListDataBuilder {
         sortedTopicsList = new ArrayList<>();
         hitListData = new HitListData();
     }
+
+    // for testing
+    public List<String> getSortedCategoriesList(){
+        return sortedCategoriesList;
+    }
+
+    public List<String> getSortedTopicsList(){
+        return sortedTopicsList;
+    }
+
+    public List<Hit> getSortedHitList(){
+        return sortedHitList;
+    }
+
+    public int getCategoryFrequency(String category){
+        return categoryFrequency.get(category);
+    }
+
+    public int getTopicFrequency(String topic){
+        return topicFrequency.get(topic);
+    }
+
 }
