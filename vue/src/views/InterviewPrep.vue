@@ -1,17 +1,16 @@
 <template>
   <div>
-    <chat-bot />
-    <interview-prep-info />
+    <pathway-container />
   </div>
 </template>
 
 <script>
-import InterviewPrepInfo from '@/components/InterviewPrepInfo.vue';
-import ChatBot from '@/components/ChatBot.vue';
+
+import PathwayContainer from '../components/PathwayContainer.vue';
 export default {
+  name: "interview-prep",
   components: {
-    InterviewPrepInfo,
-    ChatBot
+    PathwayContainer
   }
 }
 </script>

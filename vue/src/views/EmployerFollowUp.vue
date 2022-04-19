@@ -1,17 +1,17 @@
 <template>
   <div>
-    <chat-bot />
-    <employer-follow-up-info />
+    <pathway-container />
   </div>
 </template>
 
 <script>
-import EmployerFollowUpInfo from '@/components/EmployerFollowUpInfo.vue';
-import ChatBot from '@/components/ChatBot.vue';
+
+import PathwayContainer from '../components/PathwayContainer.vue';
 export default {
+  name: "employer-followup",
   components: {
-    EmployerFollowUpInfo,
-    ChatBot
+    PathwayContainer
+    
   }
 }
 </script>
