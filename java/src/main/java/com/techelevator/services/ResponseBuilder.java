@@ -114,16 +114,24 @@ public class ResponseBuilder {
                 return getMotivationalQuote();
             }
 
+            Collections.shuffle(prefixes);
+            String messagePrefix = prefixes.get(0);
             String messageSuffix = topCategory;
+
+
+            List<ResponseLink> responseLinks = new ArrayList<>();
+
             if(hitListData.getNumUniqueTopics()==1){
                 messageSuffix = hitListData.getTopicsList().get(0);
             }
 
-            Collections.shuffle(prefixes);
-            String messagePrefix = prefixes.get(0);
+            if(hitListData.getQuery().contains("help")){
+                messagePrefix = "Sure, I can help mew! ";
+                messageSuffix = "";
+            }
+
             ro.setMessage(messagePrefix + messageSuffix);
 
-            List<ResponseLink> responseLinks = new ArrayList<>();
 
             for(Hit hit : hitListData.getSortedHitList()){
 

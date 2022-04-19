@@ -1,61 +1,61 @@
 topic_id,topic,keywords,category,Module/section,External Link
-1,event,calendar | event | schedule | upcoming | date | time | pathway | networking | connections | meetups | meetup,calendar,M0L0,https://www.meetup.com/find/?keywords=technology&location=us--pa--Pittsburgh&source=EVENTS
-2,job postings,interview | job | job posting | postings | requisition | job requisition | employment | employer | find job | open job | interviews | job search | search | posting | requisitions | job requisitions | employers | find jobs | indeed | linkedin | huntr | job board | job boards | resume | glassdoor | handshake | monster | career builder ,jobs,M0L0,https://www.indeed.com/jobs?q=software&l=Pittsburgh%2C+PA&explvl=entry_level&vjk=5957f8ca6fc9f472
-3,joke,joke | funny | frustrated | annoyed | bad | no horrible | hate | disaster | anger | angry | mad | fuck | fucked | damn | goddammit | asshole,joke,M0L0,M0L0
-4,quote,inspriation | quote | motivation,quote,M0L0,M0L0
-5,employer follow-up,interview | followup | post-interview | thank you | offer | pathway,pathway,M0L0,M0L0
-6,interview fashion,interview | wear | dress | tie | suit | dressed-up | what should i | business | formal | neutral | blazer | button-up | slacks | pathway,pathway,M0L0,https://www.indeed.com/career-advice/interviewing/what-to-wear-to-an-interview
-7,interview preparation,interview | preparation | prepare | technical interview | star | starting salary | salary | wear | dress | tie | suit | dressed-up | behavioral interview | technical | behavioral | superhero pose | resume | research | study | pathway,pathway,M0L0,M0L0
-8,sample STAR interview question,sample | interview | sample questions | sample interview questions | star | behavioral interview | hr | human resources | culture | culture fit | body language | non-verbals | strengths | weaknesses | salary | salary requirements | prepare | situation | task | action | result | pathway,pathway,M0L0,https://www.themuse.com/advice/behavioral-interview-questions-answers-examples
-9,cover letter,cover | cover letter | write | cv | curriculum vitae | apply | job | interview | pathway,interview,M0L0,https://www.themuse.com/advice/how-to-write-a-cover-letter-31-tips-you-need-to-know
-10,resume,resume | write | interview | apply | job | experience | resume revision | skills | education | professional experience | summary | action verbs | rubric | pathway,interview,M0L0,https://www.linkedin.com/pulse/game-thrones-guide-creating-killer-resume-emer-mccann-she-her-/
-11,linkedin,social media | linked-in | linked in | profile | connections | networking | follow-up | connect | connect with | message | in mail | linkedin premium | pathway,interview,M0L0,https://www.forbes.com/sites/williamarruda/2017/01/15/linkedin-101-how-to-craft-a-stellar-profile/?sh=74fd86415379
-12,elevator pitch,elevator pitch | video | elevator | pitch | speech | thirty seconds | employer showcase | strengths | goal | personality | clifton strengths,elevator pitch,M0L0,https://www.thebalancecareers.com/elevator-speech-examples-and-writing-tips-2061976
-13,clifton strengths,clifton strengths | clifton | strengths | talents | leadership | executing | influencing | relationship building | strategic thinking | achiever | activator | adaptability | analytical | arranger | belief | command | communication | competition | connectedness | consistency | context | deliberative | developer | discipline | empathy | focus | futuristic | harmony | ideation | includer | individualization | input | intellection | learner | maximizer | positivity | relator | responsibility | restorative | self-assurance | self assurance | significance | strategic | woo,pathway,M0L0,https://www.uschamber.com/co/grow/thrive/cliftonstrengths-assessment
-12,terminal,terminal | cli | command line | interface,terminal,M1L1,https://tutorial.djangogirls.org/en/intro_to_command_line/
-13,java,java | language ,java,M1L3,https://www.geeksforgeeks.org/introduction-to-java/
-14,intellij,intellij | ide | jetbrain | maven ,tools,M1L1,https://www.youtube.com/watch?v=GSKERVTMWqs
-15,postgresql,postgres | data | database | pgadmin | erd,tools,M2L12,https://www.postgresql.org/docs/current/index.html
-16,postman,postman | web api's | api | api's | get | post | put | request | response | delete,tools,M2L12,https://learning.postman.com/docs/getting-started/introduction/
+1,event,calendar | event | events | schedule | scheduled | happening | upcoming | date | dates | time | times | pathway | networking | connections | meetups | meetup | tomorrow | next week | day | weeks | days,calendar,M0L0,https://www.meetup.com/find/?keywords=technology&location=us--pa--Pittsburgh&source=EVENTS
+2,job postings,interview | interviews | interviewed | interviewing | job | jobs | job posting | job postings | postings | requisition | requisitions | job requisition | employment | employer | employers | find a job | find jobs | find job | open job | open jobs | job search | search | posting | job requisitions | indeed | linkedin | huntr | job board | job boards | resume | glassdoor | handshake | monster | career builder | hire | hired | hiring | work | career | developer | software developer | software engineer | programmer | QA | quality assurance | tester | UX | help,jobs,M0L0,https://www.indeed.com/jobs?q=software&l=Pittsburgh%2C+PA&explvl=entry_level&vjk=5957f8ca6fc9f472
+3,joke,joke | jokes | funny | frustrated | frustration | frustrating | annoyed | bad | horrible | hate | disaster | train wreck | trainwreck | anger | angry | pissed | mad | fuck | fucked | damn | goddammit | shit | asshole | fuck this | useless | failure | fail | failing,joke,M0L0,M0L0
+4,quote,inspiration | inspirational | inspire | quote | quotes | quotation | motivate | motivation | motivational | uninspired,quote,M0L0,M0L0
+5,employer follow-up,interview | interviews | interviewed | followup | follow-up | post-interview | post interview | after an interview | thank you | offer | pathway | email | e-mail | emails | e-mails,pathway,M0L0,M0L0
+6,interview fashion,interview | interviews | wear | dress | tie | suit | dressed-up | dress up | what should i | business | formal | neutral | blazer | button-up | button-down | button up | button down | skirt | slacks | appearance | look good | pathway | how to dress,pathway,M0L0,https://www.indeed.com/career-advice/interviewing/what-to-wear-to-an-interview
+7,interview preparation,interview | interviews | preparation | prepare | prep | technical interview | technical interviews | star | star questions | starting salary | salary | wear | dress | tie | suit | dressed-up | behavioral interview | technical | behavioral | superhero pose | resume | research | study | pathway | help,pathway,M0L0,M0L0
+8,sample STAR interview question,example | examples | sample | interview | interviews | sample questions | sample interview questions | star | star questions | behavioral interview | hr | human resources | culture | culture fit | body language | non-verbals | non-verbal | non verbal | strengths | weaknesses | salary | salary requirements | prepare | preparation | situation | task | action | result | pathway,pathway,M0L0,https://www.themuse.com/advice/behavioral-interview-questions-answers-examples
+9,cover letter,cover | cover letter | cover letters | write | how to write | cv | curriculum vitae | apply | application | applications | jobs | job | interview | pathway,interview,M0L0,https://www.themuse.com/advice/how-to-write-a-cover-letter-31-tips-you-need-to-know
+10,resume,resume | resumes | write | how to write | interview | apply| application | job | experience | resume revision | revise | skills | education | professional experience | technical experience | summary | professional summary | action verbs| buzz words | rubric | pathway,interview,M0L0,https://www.linkedin.com/pulse/game-thrones-guide-creating-killer-resume-emer-mccann-she-her-/
+11,linkedin,social media | linked-in | linked in | linkedin | profile | connections | networking | network | follow up | follow-up | connect | connect with | message | bio | description | stand out | in mail | linkedin premium | pathway,interview,M0L0,https://www.forbes.com/sites/williamarruda/2017/01/15/linkedin-101-how-to-craft-a-stellar-profile/?sh=74fd86415379
+12,elevator pitch,elevator pitch | video | elevator | pitch | speech | thirty seconds | minute | nervous | employer showcase | strengths | goal | goals | personality | clifton strengths,elevator pitch,M0L0,https://www.thebalancecareers.com/elevator-speech-examples-and-writing-tips-2061976
+13,clifton strengths,clifton strengths | clifton | strengths | strength | talents | leadership | executing | influencing | relationship building | strategic thinking | achiever | activator | adaptability | analytical | arranger | belief | command | communication | competition | connectedness | consistency | context | deliberative | developer | discipline | empathy | focus | futuristic | harmony | ideation | includer | individualization | input | intellection | learner | maximizer | positivity | relator | responsibility | restorative | self-assurance | self assurance | significance | strategic | woo,pathway,M0L0,https://www.uschamber.com/co/grow/thrive/cliftonstrengths-assessment
+12,terminal,terminal | cli | command line | interface | command line interface | bash | bash script,terminal,M1L1,https://tutorial.djangogirls.org/en/intro_to_command_line/
+13,java,java | language | java basics | intro to java | introduction to java | basics of java | help,java,M1L3,https://www.geeksforgeeks.org/introduction-to-java/
+14,intellij,intellij | intelli j | ide | jetbrain | jetbrains | maven | idea,tools,M1L1,https://www.youtube.com/watch?v=GSKERVTMWqs
+15,postgresql,postgres | postgresql | sql | data | database | pgadmin | erd,tools,M2L12,https://www.postgresql.org/docs/current/index.html
+16,postman,postman | web api | web apis | api | apis | crud | api testing | test my api | get | post | put | request | response | delete | json,tools,M2L12,https://learning.postman.com/docs/getting-started/introduction/
 17,npm,npm | node.js | package manager | package | packages ,tools,M0L0,https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/
-18,git,git | version control | repository | repo | merge | merge conflict | branch | trunk | github | commit | stage | push | pull | clone,tools,M1L1,https://git-scm.com/
-19,java primitive variables,variable | variable types | int | integer | integers | long | double | float | boolean | char | java | byte | short ,java,M1L2,https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
-20,java logical branching,if | if else | java | boolean expression | logical operators | true | false | blocks | methods | parameters,java,M1L3,https://www.w3schools.com/java/java_conditions.asp
-21,java loops and arrays ,array | loop | while | for loop | do while | java | initilize | indexes | initializer | condition | iterator,java,M1L4,https://caveofprogramming.com/javatutorial/java-tutorial-3-arrays-methods-loops-and-conditionals.html
-22,java command-line programs,cli | java,java,M1L5,https://www.jdatalab.com/information_system/2017/01/16/java-review-application.html
-23,java objects,object | java | abstraction | in memory data structure ,java,M1L6,https://www.geeksforgeeks.org/classes-objects-java/
-24,java collections - stacks and queues ,list | stack | queue | collection | lifo | push | pop | fifo | offer | poll,java,M1L7,https://introcs.cs.princeton.edu/java/43stack/
+18,git,git | version control | repository | repo | merge | main | origin | merge conflict | merge conflicts | branch | trunk | github | commit | add | stage | push | pull | clone,tools,M1L1,https://git-scm.com/
+19,java primitive variables,variable | variables | variable type | variable types | int | integer | integers | long | longs | double | doubles | float | floats | boolean | booleans | char | chars | java | byte | bytes | short | shorts | primitive,java,M1L2,https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+20,java logical branching,if | if else | if-else | conditional | logical branching | branching | break | continue | java | boolean expression | logical operators | true | false | blocks | methods | parameters | ternary,java,M1L3,https://www.w3schools.com/java/java_conditions.asp
+21,java loops and arrays ,array | loop | while | while loop | while-loop | for loop | for-loop | for each loop | for-each loop | for-each-loop | do while | do-while | java | initialize | index | indexes | indices | initializer | condition | conditional | iterate | iterator,java,M1L4,https://caveofprogramming.com/javatutorial/java-tutorial-3-arrays-methods-loops-and-conditionals.html
+22,java command-line programs,cli | java | command line | command-line,java,M1L5,https://www.jdatalab.com/information_system/2017/01/16/java-review-application.html
+23,java objects,object | objects | java | abstraction | memory data structure | classes | class,java,M1L6,https://www.geeksforgeeks.org/classes-objects-java/
+24,java collections - stacks and queues ,list | lists | stack | stacks | queue | queues | collection | collections | lifo | push | pop | fifo | offer | peek | poll,java,M1L7,https://introcs.cs.princeton.edu/java/43stack/
 25,java collections - maps and sets,map | set | collection | key-value pair | key | value | hash map | add | remove | foreach,java,M1L8,https://www.javatpoint.com/set-vs-map-in-java
-26,java classes and encapsulation,encapsulation | class | classes | methods | constructors | modifiers,java,M1L9,https://www.geeksforgeeks.org/encapsulation-in-java/
-27,java inheritance,inheritance | parent | child | subclass | superclass ,java,M1L11,https://www.geeksforgeeks.org/inheritance-in-java/
+26,java classes and encapsulation,encapsulate | encapsulation | class | classes | methods | constructor | constructors | modifiers | access,java,M1L9,https://www.geeksforgeeks.org/encapsulation-in-java/
+27,java inheritance,inherit | inheritance | parent | child | children | subclass | superclass | parent class | child class | extend | extends,java,M1L11,https://www.geeksforgeeks.org/inheritance-in-java/
 28,java polymorphism,polymorphism | polymorphic | interfaces,java,M1L12,https://www.geeksforgeeks.org/polymorphism-in-java/
-29,unit testing,test | unit | testing | edge cases | reliable | repeatable | independent | arrange | act | assert,java,M1L14,https://stackify.com/unit-testing-basics-best-practices/
-30,java error handling,error | error handling | exception | exception handling | try | catch,java,M1L16,https://stackify.com/specify-handle-exceptions-java/
+29,unit testing,test | unit | testing | edge case | edge cases | reliable | repeatable | independent | arrange | act | assert | junit | j unit | tests | unit testing | happy path,java,M1L14,https://stackify.com/unit-testing-basics-best-practices/
+30,java error handling,error | errors | error handling | handle errors | exception | exceptions | exception handling | try | catch | runtime | compile time | throws | throw an exception,java,M1L16,https://stackify.com/specify-handle-exceptions-java/
 31,java file input/output,file input | file output | i/o | input/output | stream | scanner | reading | writing,java,M1L17,https://www.seas.upenn.edu/~cis1xx/resources/java/fileIO/introToFileIO.html
-32,sql,sql | database | databases | statement | select | where,sql,M2L1,"https://www.techtarget.com/searchdatamanagement/definition/SQL#:~:text=Structured%20Query%20Language%20(SQL)%20is,on%20the%20data%20in%20them."
-33,sql: ordering and limiting,ordering | limiting | grouping | order | limit | group | aggregate | string concatenate,sql,M2L2,http://2015.padjo.org/tutorials/sql-basics/limit-and-order/
-34,sql joins,sql join | join | joins | outer | inner | left | right | left outer | right outer,sql,M2L3,https://www.w3schools.com/sql/sql_join.asp
-35,sql: inserting and updating ,sql | create | insert | update | delete | creating | deleting | updating | inserting | crud | constraint | transactions,sql,M2L4,https://www.pluralsight.com/guides/manipulating-data-using-insert-update-delete-sql-server
-36,sql relational data,sql | data | relation | relational | relationship | relational data | database | design,sql,M2L5,https://www.google.com/
+32,sql,sql | database | databases | statement | select | query | queries,sql,M2L1,"https://www.techtarget.com/searchdatamanagement/definition/SQL#:~:text=Structured%20Query%20Language%20(SQL)%20is,on%20the%20data%20in%20them."
+33,sql: ordering and limiting,sql | order | ordering | limit | limiting | group by | grouping | group | aggregate | string concatenate,sql,M2L2,http://2015.padjo.org/tutorials/sql-basics/limit-and-order/
+34,sql joins,sql | sql join | join | joins | outer | inner | left | right | left outer | right outer | full join | union,sql,M2L3,https://www.w3schools.com/sql/sql_join.asp
+35,sql: inserting and updating ,sql | create | insert | update | delete | creating | deleting | updating | inserting | crud | constraint | transactions | transaction | add row,sql,M2L4,https://www.pluralsight.com/guides/manipulating-data-using-insert-update-delete-sql-server
+36,sql relational data,sql | data | relation | relational | relationship | relational data | database | design,sql,M2L5,https://www.sqlshack.com/learn-sql-types-of-relations/
 37,data access object,dao | jdbc | jdbc template | dao pattern | dao access object,data,M2L6,https://www.baeldung.com/java-dao-pattern
-38,dao testing,dao | test | testing,data,M2L7,https://www.google.com/
-39,data security,data | security,data,M2L8,https://www.google.com/
-40,consuming restful apis,api | apis | web api | http api | consume api | consume | rest | restful rest api | restful api,apis,M2L11,https://www.google.com/
-41,server-side apis,server | spring | spring boot,apis,M2L13,https://www.google.com/
-42,model view controller,mvc | model | view | controller | api,mvc,M2L13,https://www.google.com/
-43,securing apis,authentication | dependency injection | api,apis,M2L16,https://www.google.com/
-44,html,html,front-end,M3L1,https://www.google.com/
-45,css,css,front-end,M3L2,https://www.google.com/
-46,grid,grid,front-end,M3L3,https://cssgridgarden.com/
-47,flexbox,flexbox | flex,front-end,M3L4,https://flexboxfroggy.com/
-48,automated testing,test | automated,testing,M3L5,https://www.google.com/
-49,javascript,javascript,javascript,M3L6,https://www.google.com/
-50,javascript functions,javascript,javascript,M3L7,https://www.google.com/
-51,dom,dom | document object model,front-end,M3L8,https://www.google.com/
-52,javascript event handling,javascript | js | event handling | event,javascript,M3L9,https://www.google.com/
-53,vue js,vue | vuejs | vue js,vue,M3L11,https://www.google.com/
-54,vue js event handling,vue | vuejs | vue js | event handling | events |,vue,M3L13,https://www.google.com/
-55,vue js components,vue | vue component | component | communication | component communication,vue,M3L14,https://www.google.com/
-56,vue js router,vue | vuejs | vue js | vue router | route | router,vue,M3L17,https://www.google.com/
-57,web services,web service | service | microservice | asynchronous,apis,M3L18,https://www.google.com/
-58,curriculum,curriculum,curriculum,M0L0,https://v2-4-techelevator-book.netlify.app/content/guides/setup-personal-computer.html#basic-installation-net-on-windows-10-pc
+38,dao testing,dao | test | testing | dao test | dao testing,data,M2L7,https://howtodoinjava.com/best-practices/how-you-should-unit-test-dao-layer/
+39,data security,data | security | data security,data,M2L8,https://www.w3schools.com/sql/sql_injection.asp
+40,consuming restful apis,api | apis | web api | http api | http | consume api | consume | rest | restful | rest api | restful api,apis,M2L11,https://www.tutorialspoint.com/spring_boot/spring_boot_consuming_restful_web_services.htm
+41,server-side apis,server | spring | spring boot | server side | server-side | api | apis,apis,M2L13,https://dojotoolkit.org/reference-guide/1.10/quickstart/rest.html
+42,model view controller,mvc | model | view | controller | api,mvc,M2L13,"https://www.javatpoint.com/mvc-architecture-in-java#:~:text=The%20Model%2DView%2DController%20(,presentation%20information%20and%20control%20information."
+43,securing apis,authentication | authenticate | jwt | authorize | authorized | authorization | dependency injection | secure | security | api,apis,M2L16,https://howtodoinjava.com/java/java-security/rest-api-security-guide/
+44,html,html,front-end,M3L1,https://www.geeksforgeeks.org/html/
+45,css,css,front-end,M3L2,https://css-tricks.com/
+46,grid,grid | css grid | layout,front-end,M3L3,https://cssgridgarden.com/
+47,flexbox,flexbox | flex | css | layout,front-end,M3L4,https://flexboxfroggy.com/
+48,automated testing,test | testing | automate | automates | automated | automated test | automated tests | automated testing | selenium,testing,M3L5,https://www.selenium.dev/about/
+49,javascript,javascript | js | javascript basics | intro to javascript | introduction to javascript | frontend | front-end | front end,javascript,M3L6,https://www.w3schools.com/js/
+50,javascript functions,javascript | js | javascript function | javascript functions | function | functions,javascript,M3L7,https://www.javascripttutorial.net/javascript-function/
+51,dom,dom | document object model,front-end,M3L8,https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+52,javascript event handling,javascript | js | event handling | event | listener | event listener,javascript,M3L9,https://www.javascripttutorial.net/javascript-dom/handling-events-in-javascript/
+53,vue js,vue | vuejs | vue js | frontend | front-end | front end ,vue,M3L11,https://v2.vuejs.org/v2/guide/
+54,vue js event handling,vue | vuejs | vue js | event | event handling | handling | events |,vue,M3L13,https://v2.vuejs.org/v2/guide/events?redirect=true
+55,vue js components,vue | vuejs | vue js | vue component | vue components | component | components | communication | component communication | views | view,vue,M3L14,https://v2.vuejs.org/v2/guide/components.html
+56,vue js router,vue | vuejs | vue js | vue router | route | router | routes| routers | router-link | router-links | router link | router links,vue,M3L17,https://router.vuejs.org/guide/
+57,web services,web service| web services | service | services | microservice | asynchronous | http | JSON,apis,M3L18,https://www.geeksforgeeks.org/what-are-web-services/
+58,curriculum,curriculum | help,curriculum,M0L0,https://v2-4-techelevator-book.netlify.app/
